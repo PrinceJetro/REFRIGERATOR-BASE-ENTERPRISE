@@ -1,0 +1,1498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - Refrigerator Base Enterprise</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: #003366;
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo-icon {
+            font-size: 1.8rem;
+            color: #4da6ff;
+        }
+        
+        .logo h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .logo span {
+            color: #4da6ff;
+        }
+        
+        /* Navigation Styles */
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            padding: 5px 0;
+            position: relative;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: #4da6ff;
+        }
+        
+        nav a.active {
+            color: #4da6ff;
+        }
+        
+        nav a.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #4da6ff;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(rgba(0, 51, 102, 0.9), rgba(0, 51, 102, 0.8)), url('./img/compressor.jpeg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+        }
+        
+        .page-header-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .page-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .page-subtitle {
+            font-size: 1.5rem;
+            color: #e6f2ff;
+            margin-bottom: 30px;
+        }
+        
+        .breadcrumb {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.1rem;
+        }
+        
+        .breadcrumb a {
+            color: #4da6ff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .breadcrumb a:hover {
+            color: white;
+        }
+        
+        .breadcrumb .separator {
+            color: #999;
+        }
+        
+        /* Gallery Section */
+        .gallery-section {
+            padding: 80px 20px;
+            background-color: white;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title {
+            font-size: 2.8rem;
+            color: #003366;
+            margin-bottom: 15px;
+            font-weight: 800;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(to right, #4da6ff, #00cc66);
+            border-radius: 2px;
+        }
+        
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 700px;
+            margin: 25px auto 0;
+            line-height: 1.6;
+        }
+        
+        /* Gallery Filter */
+        .gallery-filter {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+        }
+        
+        .filter-btn {
+            padding: 12px 25px;
+            background: white;
+            border: 2px solid #e6f0fa;
+            border-radius: 30px;
+            color: #666;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .filter-btn:hover {
+            border-color: #4da6ff;
+            color: #003366;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .filter-btn.active {
+            background: #4da6ff;
+            border-color: #4da6ff;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(77, 166, 255, 0.2);
+        }
+        
+        .filter-btn i {
+            font-size: 1.2rem;
+        }
+        
+        /* Gallery Grid */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 60px;
+        }
+        
+        .gallery-item {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            cursor: pointer;
+            height: 280px;
+            transition: all 0.3s ease;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+        
+        .gallery-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover .gallery-img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to top, rgba(0, 51, 102, 0.9), transparent 50%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 25px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+        
+        .gallery-category {
+            background: rgba(77, 166, 255, 0.9);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 10px;
+            width: fit-content;
+        }
+        
+        .gallery-title {
+            color: white;
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            line-height: 1.3;
+        }
+        
+        .gallery-description {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+        
+        .gallery-zoom {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #003366;
+            font-size: 1.2rem;
+            opacity: 0;
+            transform: scale(0.8);
+            transition: all 0.3s ease;
+        }
+        
+        .gallery-item:hover .gallery-zoom {
+            opacity: 1;
+            transform: scale(1);
+        }
+        
+        /* Gallery Stats */
+        .gallery-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+            margin-bottom: 60px;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            border: 2px solid #e6f0fa;
+            transition: all 0.3s ease;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+            border-color: #4da6ff;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+        }
+        
+        .stat-icon {
+            width: 70px;
+            height: 70px;
+            background: #e6f2ff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: #4da6ff;
+            font-size: 2rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .stat-card:hover .stat-icon {
+            transform: scale(1.1);
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #003366;
+            margin-bottom: 10px;
+            line-height: 1;
+        }
+        
+        .stat-label {
+            color: #666;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+        
+        /* Gallery CTA */
+        .gallery-cta {
+            background: linear-gradient(135deg, #003366, #004488);
+            color: white;
+            padding: 60px;
+            border-radius: 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .gallery-cta::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 300px;
+            height: 300px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+        }
+        
+        .gallery-cta::after {
+            content: '';
+            position: absolute;
+            bottom: -100px;
+            left: -100px;
+            width: 300px;
+            height: 300px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+        }
+        
+        .cta-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .cta-title {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .cta-text {
+            font-size: 1.2rem;
+            color: #e6f2ff;
+            margin-bottom: 40px;
+            line-height: 1.6;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .cta-button {
+            padding: 18px 35px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .cta-button.primary {
+            background: #00cc66;
+            color: white;
+        }
+        
+        .cta-button.primary:hover {
+            background: #00b359;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 204, 102, 0.3);
+        }
+        
+        .cta-button.secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+        
+        .cta-button.secondary:hover {
+            background: white;
+            color: #003366;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(255, 255, 255, 0.2);
+        }
+        
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 2000;
+            padding: 20px;
+        }
+        
+        .lightbox-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .lightbox-close {
+            position: absolute;
+            top: -50px;
+            right: 0;
+            color: white;
+            font-size: 2.5rem;
+            cursor: pointer;
+            transition: color 0.3s ease;
+            background: none;
+            border: none;
+        }
+        
+        .lightbox-close:hover {
+            color: #4da6ff;
+        }
+        
+        .lightbox-image {
+            max-width: 100%;
+            max-height: 70vh;
+            object-fit: contain;
+            border-radius: 10px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+        
+        .lightbox-info {
+            color: white;
+            text-align: center;
+            margin-top: 20px;
+            max-width: 800px;
+        }
+        
+        .lightbox-title {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        
+        .lightbox-description {
+            color: #cccccc;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        
+        .lightbox-category {
+            display: inline-block;
+            background: #4da6ff;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+            padding: 0 20px;
+        }
+        
+        .lightbox-nav-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+        
+        .lightbox-nav-btn:hover {
+            background: rgba(77, 166, 255, 0.8);
+            transform: scale(1.1);
+        }
+        
+        /* Footer Styles */
+        footer {
+            background-color: #002244;
+            color: white;
+            padding: 40px 0 20px;
+            margin-top: 40px;
+        }
+        
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            padding: 0 20px;
+        }
+        
+        .footer-column h3 {
+            color: #4da6ff;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: #4da6ff;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-column ul li a {
+            color: #cccccc;
+            text-decoration: none;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .footer-column ul li a:hover {
+            color: #4da6ff;
+        }
+        
+        .contact-info li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 15px;
+            color: #cccccc;
+        }
+        
+        .contact-info i {
+            color: #4da6ff;
+            margin-top: 3px;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #999;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .gallery-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                padding: 10px 20px;
+            }
+            
+            .logo {
+                width: 100%;
+                justify-content: space-between;
+                margin-bottom: 10px;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            nav {
+                width: 100%;
+                display: none;
+            }
+            
+            nav.active {
+                display: block;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                gap: 0;
+                width: 100%;
+            }
+            
+            nav ul li {
+                width: 100%;
+                text-align: center;
+                padding: 12px 0;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+            
+            .page-header {
+                padding: 80px 20px;
+            }
+            
+            .page-title {
+                font-size: 2.5rem;
+            }
+            
+            .page-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .gallery-section {
+                padding: 60px 15px;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+            
+            .section-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .gallery-filter {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .filter-btn {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+            
+            .gallery-cta {
+                padding: 50px 30px;
+            }
+            
+            .cta-title {
+                font-size: 1.8rem;
+            }
+            
+            .cta-text {
+                font-size: 1.1rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .cta-button {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .gallery-stats {
+                grid-template-columns: 1fr;
+            }
+            
+            .gallery-item {
+                height: 250px;
+            }
+            
+            .page-title {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .lightbox-nav {
+                padding: 0 10px;
+            }
+            
+            .lightbox-nav-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .filter-btn {
+                padding: 10px 20px;
+                font-size: 0.95rem;
+            }
+            
+            .gallery-overlay {
+                padding: 20px;
+            }
+            
+            .gallery-title {
+                font-size: 1.2rem;
+            }
+            
+            .stat-card {
+                padding: 25px;
+            }
+            
+            .stat-number {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <div class="logo-icon">
+                    <img src="LOGO.jpeg" alt="" width="50" height="50">
+                </div>
+                <h1>REFRIGERATOR <span>BASE</span> ENTERPRISE</h1>
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            
+            <nav id="mainNav">
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="about.html"><i class="fas fa-info-circle"></i> About</a></li>
+                    <li><a href="services.html"><i class="fas fa-box"></i> Services</a></li>
+                    <li><a href="gallery.html" class="active"><i class="fas fa-images"></i> Gallery</a></li>
+                    <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="page-header-content">
+            <h1 class="page-title">Product Catalog / Photo Gallery</h1>
+            <p class="page-subtitle">Visual showcase of our products, workshop activities, and marine refrigeration solutions</p>
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span class="separator">/</span>
+                <span>Gallery</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Visual Showcase</h2>
+                <p class="section-subtitle">Explore our comprehensive collection of marine refrigeration products and workshop activities through high-quality images</p>
+            </div>
+
+            <!-- Gallery Filter -->
+            <div class="gallery-filter">
+                <button class="filter-btn active" data-filter="all">
+                    <i class="fas fa-th"></i> All Photos
+                </button>
+                <button class="filter-btn" data-filter="compressors">
+                    <i class="fas fa-compress-arrows-alt"></i> Compressors
+                </button>
+                <button class="filter-btn" data-filter="spare-parts">
+                    <i class="fas fa-cogs"></i> Spare Parts
+                </button>
+                <button class="filter-btn" data-filter="motors">
+                    <i class="fas fa-tachometer-alt"></i> Motors
+                </button>
+                <button class="filter-btn" data-filter="electrical">
+                    <i class="fas fa-bolt"></i> Electrical Panels
+                </button>
+            </div>
+
+            <!-- Gallery Grid (Generated by JavaScript) -->
+            <div class="gallery-grid" id="galleryGrid">
+                <!-- Gallery items will be generated here by JavaScript -->
+            </div>
+
+            <!-- Gallery Stats -->
+            <div class="gallery-stats">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-images"></i>
+                    </div>
+                    <div class="stat-number" id="totalImages">0</div>
+                    <div class="stat-label">Product Images</div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-compress-arrows-alt"></i>
+                    </div>
+                    <div class="stat-number">5</div>
+                    <div class="stat-label">Product Categories</div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-industry"></i>
+                    </div>
+                    <div class="stat-number">15+</div>
+                    <div class="stat-label">Years Experience</div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-globe-americas"></i>
+                    </div>
+                    <div class="stat-number">40+</div>
+                    <div class="stat-label">Countries Served</div>
+                </div>
+            </div>
+
+            <!-- Gallery CTA -->
+            <div class="gallery-cta">
+                <div class="cta-content">
+                    <h3 class="cta-title">Need Specific Photos or Documentation?</h3>
+                    <p class="cta-text">Contact us for detailed photos, technical specifications, or visual documentation of specific products or repair projects.</p>
+                    <div class="cta-buttons">
+                        <a href="contact.html" class="cta-button primary">
+                            <i class="fas fa-camera"></i> Request Product Photos
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>Company</h3>
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                    <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                    <li><a href="services.html"><i class="fas fa-chevron-right"></i> Our Services</a></li>
+                    <li><a href="products.html"><i class="fas fa-chevron-right"></i> Products</a></li>
+                    <li><a href="gallery.html"><i class="fas fa-chevron-right"></i> Gallery</a></li>
+                    <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Our Services</h3>
+                <ul>
+                    <li><a href="#"><i class="fas fa-cog"></i> Technical Support</a></li>
+                    <li><a href="#"><i class="fas fa-compress-arrows-alt"></i> Compressors</a></li>
+                    <li><a href="#"><i class="fas fa-tools"></i> Spare Parts</a></li>
+                    <li><a href="#"><i class="fas fa-industry"></i> Workshop Services</a></li>
+                    <li><a href="#"><i class="fas fa-bolt"></i> Electric Parts</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Contact Info</h3>
+                <ul class="contact-info">
+                    <li>
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>11B Forcados Road, Apapa, Lagos State, Nigeria</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-phone"></i>
+                        <span>+234 706 239 7529<br>+234 806 757 1759</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-envelope"></i>
+                        <span>contact@refrigeratorbaseenterprise.com</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Global Reach</h3>
+                <p style="color: #cccccc; margin-bottom: 20px;">We provide marine refrigeration solutions to clients worldwide with our extensive database and partnerships with all major OEMs.</p>
+                <div style="color: #4da6ff; font-size: 2rem;">
+                    <i class="fas fa-globe-americas"></i>
+                    <i class="fas fa-anchor"></i>
+                    <i class="fas fa-ship"></i>
+                </div>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>&copy; 2023 Refrigerator Base Enterprise. All Rights Reserved. | Specialists in Marine Refrigeration & Air Conditioning Systems</p>
+        </div>
+    </footer>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-content">
+            <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+            <img class="lightbox-image" id="lightboxImage" src="" alt="">
+            <div class="lightbox-info">
+                <div class="lightbox-category" id="lightboxCategory"></div>
+                <h3 class="lightbox-title" id="lightboxTitle"></h3>
+                <p class="lightbox-description" id="lightboxDescription"></p>
+            </div>
+            <div class="lightbox-nav">
+                <button class="lightbox-nav-btn prev" onclick="changeImage(-1)">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="lightbox-nav-btn next" onclick="changeImage(1)">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Gallery Data - All images with their categories and src paths
+        const galleryData = [
+            // Compressors
+            { src: "./img/products/Carlyle.png", category: "compressors", title: "Carlyle Compressor" },
+            { src: "./img/products/carrier.jpeg", category: "compressors", title: "CARRIER Compressor Assembly" },
+            { src: "./img/products/Sabroe.png", category: "compressors", title: "Sabroe Compressor" },
+            { src: "./img/products/bock.jpeg", category: "compressors", title: "Bock Compressor" },
+            { src: "./img/products/bitzer.jpeg", category: "compressors", title: "Bitzer Compressor" },
+            { src: "./img/products/copeland.jpeg", category: "compressors", title: "Copeland Compressor" },
+            { src: "./img/products/sabroe28compressor.jpeg", category: "compressors", title: "Sabroe 28 Compressor" },
+            { src: "./img/products/bitzercompressor.jpeg", category: "compressors", title: "Bitzer Compressor Unit" },
+            { src: "./img/products/screwcompressor.jpeg", category: "compressors", title: "Screw Compressor" },
+            
+            // Spare Parts
+            { src: "./img/products/filterdrier.jpeg", category: "spare-parts", title: "Filter Drier" },
+            { src: "./img/products/solenoidvalve.jpeg", category: "spare-parts", title: "Solenoid Valve" },
+            { src: "./img/products/handvalve.jpeg", category: "spare-parts", title: "Hand Valve" },
+            { src: "./img/products/watercoolcondenser.jpeg", category: "spare-parts", title: "Water Cooled Condenser" },
+            { src: "./img/products/gasket.jpeg", category: "spare-parts", title: "Gasket Set" },
+            { src: "./img/products/expansionvalve.jpeg", category: "spare-parts", title: "Expansion Valve" },
+            { src: "./img/products/pressureswitch.jpeg", category: "spare-parts", title: "Pressure Switch" },
+            { src: "./img/products/sightglass.jpeg", category: "spare-parts", title: "Sight Glass" },
+            { src: "./img/products/pressure switch.jpeg", category: "spare-parts", title: "Pressure Switch Unit" },
+            { src: "./img/products/filtercore.jpeg", category: "spare-parts", title: "Filter Core" },
+            { src: "./img/products/pressureguage.jpeg", category: "spare-parts", title: "Pressure Gauge" },
+            { src: "./img/products/solenoidvalve1.jpeg", category: "spare-parts", title: "Solenoid Valve Type 1" },
+            { src: "./img/products/solenoid valve.jpeg", category: "spare-parts", title: "Solenoid Valve Assembly" },
+            { src: "./img/products/sabroe spare parts.jpeg", category: "spare-parts", title: "Sabroe Spare Parts" },
+            { src: "./img/products/evaporator.jpeg", category: "spare-parts", title: "Evaporator Unit" },
+            { src: "./img/products/water cool condenser.jpeg", category: "spare-parts", title: "Water Cool Condenser" },
+            { src: "./img/products/orifice.jpeg", category: "spare-parts", title: "Orifice Plate" },
+            { src: "./img/products/crankshaft.jpeg", category: "spare-parts", title: "Crankshaft" },
+            { src: "./img/products/crankshaftcmo28.jpeg", category: "spare-parts", title: "Crankshaft CMO 28" },
+            { src: "./img/products/oilpump.jpeg", category: "spare-parts", title: "Oil Pump" },
+            { src: "./img/products/connecting rod.jpeg", category: "spare-parts", title: "Connecting Rod" },
+            { src: "./img/products/evaporator1.jpeg", category: "spare-parts", title: "Evaporator Type 1" },
+            
+            // Motors
+            { src: "./img/products/electric motor new.jpeg", category: "motors", title: "New Electric Motor" },
+            { src: "./img/products/electric motor rewind.jpeg", category: "motors", title: "Electric Motor Rewind" },
+            { src: "./img/products/electricmotorrewind.jpeg", category: "motors", title: "Motor Rewind Process" },
+            
+            // Electrical Parts
+            { src: "./img/products/motor protection circuit breaker.jpeg", category: "electrical", title: "Motor Protection Circuit Breaker" },
+            { src: "./img/products/electrical wire.jpeg", category: "electrical", title: "Electrical Wire" },
+            { src: "./img/products/electrical contractor and motor starter.jpeg", category: "electrical", title: "Electrical Contractor & Motor Starter" },
+            { src: "./img/products/motor circuit breaker.jpeg", category: "electrical", title: "Motor Circuit Breaker" },
+            { src: "./img/products/industrial electrical cable.jpeg", category: "electrical", title: "Industrial Electrical Cable" },
+            { src: "./img/products/multicoreelectricalpower cable.jpeg", category: "electrical", title: "Multicore Electrical Power Cable" },
+            { src: "./img/products/four core power cable.jpeg", category: "electrical", title: "Four Core Power Cable" },
+            { src: "./img/products/manual motor start enclosure.jpeg", category: "electrical", title: "Manual Motor Start Enclosure" },
+            { src: "./img/products/variable frequency drive.jpeg", category: "electrical", title: "Variable Frequency Drive" }
+        ];
+
+        // Category display names
+        const categoryNames = {
+            "compressors": "Compressors",
+            "spare-parts": "Spare Parts",
+            "motors": "Motors",
+            "electrical": "Electrical Panels"
+        };
+
+        // Function to extract title from filename
+        function getTitleFromFilename(filename) {
+            // Remove path and extension
+            let name = filename.split('/').pop().split('.')[0];
+            // Replace underscores and hyphens with spaces
+            name = name.replace(/[_-]/g, ' ');
+            // Capitalize first letter of each word
+            return name.split(' ')
+                .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+                .join(' ');
+        }
+
+        // Function to generate gallery items
+        function generateGalleryItems() {
+            const galleryGrid = document.getElementById('galleryGrid');
+            let html = '';
+            
+            galleryData.forEach((item, index) => {
+                const categoryDisplay = categoryNames[item.category] || item.category;
+                const title = item.title || getTitleFromFilename(item.src);
+                
+                html += `
+                <div class="gallery-item" data-category="${item.category} all" data-index="${index}">
+                    <img src="${item.src}" alt="${title}" class="gallery-img" onerror="this.src='https://via.placeholder.com/300x200/003366/FFFFFF?text=Image+Not+Found'">
+                    <div class="gallery-overlay">
+                        <span class="gallery-category">${categoryDisplay}</span>
+                        <h3 class="gallery-title">${title}</h3>
+                        <p class="gallery-description"></p>
+                    </div>
+                    <div class="gallery-zoom">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                `;
+            });
+            
+            galleryGrid.innerHTML = html;
+            
+            // Update total images count
+            document.getElementById('totalImages').textContent = galleryData.length;
+            
+            return document.querySelectorAll('.gallery-item');
+        }
+
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            const nav = document.getElementById('mainNav');
+            nav.classList.toggle('active');
+            const icon = this.querySelector('i');
+            if (icon.classList.contains('fa-bars')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+        
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                const nav = document.getElementById('mainNav');
+                if (nav.classList.contains('active')) {
+                    nav.classList.remove('active');
+                    const icon = document.querySelector('.mobile-menu-btn i');
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+        });
+        
+        // Gallery Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Generate gallery items
+            const galleryItems = generateGalleryItems();
+            
+            // Gallery Filter
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            let currentFilter = 'all';
+            let galleryImages = [];
+            
+            // Initialize gallery images array
+            galleryItems.forEach((item, index) => {
+                const img = item.querySelector('.gallery-img');
+                const category = item.dataset.category;
+                const title = item.querySelector('.gallery-title').textContent;
+                const categoryText = item.querySelector('.gallery-category').textContent;
+                
+                galleryImages.push({
+                    src: img.src,
+                    alt: img.alt,
+                    category: category,
+                    title: title,
+                    description: '',
+                    categoryText: categoryText,
+                    index: index
+                });
+            });
+            
+            // Filter button click handlers
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const filter = this.dataset.filter;
+                    currentFilter = filter;
+                    
+                    // Update active button
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Filter gallery items
+                    galleryItems.forEach(item => {
+                        const categories = item.dataset.category.split(' ');
+                        
+                        if (filter === 'all' || categories.includes(filter)) {
+                            item.style.display = 'block';
+                            // Add fade animation
+                            item.style.opacity = '0';
+                            item.style.transform = 'translateY(20px) scale(0.95)';
+                            item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                            
+                            setTimeout(() => {
+                                item.style.opacity = '1';
+                                item.style.transform = 'translateY(0) scale(1)';
+                            }, 50);
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                    
+                    // Update URL hash
+                    window.location.hash = filter;
+                });
+            });
+            
+            // Check URL hash on load
+            if (window.location.hash) {
+                const filter = window.location.hash.substring(1);
+                const button = document.querySelector(`.filter-btn[data-filter="${filter}"]`);
+                if (button) {
+                    button.click();
+                }
+            }
+            
+            // Lightbox functionality
+            let currentImageIndex = 0;
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImage = document.getElementById('lightboxImage');
+            const lightboxTitle = document.getElementById('lightboxTitle');
+            const lightboxDescription = document.getElementById('lightboxDescription');
+            const lightboxCategory = document.getElementById('lightboxCategory');
+            
+            // Gallery item click handler
+            galleryItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const index = parseInt(this.dataset.index);
+                    currentImageIndex = index;
+                    openLightbox(index);
+                });
+            });
+            
+            // Open lightbox
+            window.openLightbox = function(index) {
+                const image = galleryImages[index];
+                lightboxImage.src = image.src;
+                lightboxImage.alt = image.alt;
+                lightboxTitle.textContent = image.title;
+                lightboxDescription.textContent = image.description;
+                lightboxCategory.textContent = image.categoryText;
+                lightbox.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+            };
+            
+            // Close lightbox
+            window.closeLightbox = function() {
+                lightbox.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            };
+            
+            // Change image in lightbox
+            window.changeImage = function(direction) {
+                // Get filtered images based on current filter
+                let filteredImages = [];
+                if (currentFilter === 'all') {
+                    filteredImages = galleryImages;
+                } else {
+                    filteredImages = galleryImages.filter(img => 
+                        img.category.split(' ').includes(currentFilter)
+                    );
+                }
+                
+                // Find current image in filtered array
+                const currentImage = galleryImages[currentImageIndex];
+                let currentFilteredIndex = filteredImages.findIndex(img => 
+                    img.index === currentImage.index
+                );
+                
+                // Calculate new index
+                currentFilteredIndex += direction;
+                
+                // Handle boundaries
+                if (currentFilteredIndex < 0) {
+                    currentFilteredIndex = filteredImages.length - 1;
+                } else if (currentFilteredIndex >= filteredImages.length) {
+                    currentFilteredIndex = 0;
+                }
+                
+                // Update to new image
+                const newImage = filteredImages[currentFilteredIndex];
+                currentImageIndex = newImage.index;
+                openLightbox(newImage.index);
+            };
+            
+            // Close lightbox on escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    closeLightbox();
+                } else if (e.key === 'ArrowLeft') {
+                    changeImage(-1);
+                } else if (e.key === 'ArrowRight') {
+                    changeImage(1);
+                }
+            });
+            
+            // Close lightbox when clicking outside image
+            lightbox.addEventListener('click', function(e) {
+                if (e.target === this) {
+                    closeLightbox();
+                }
+            });
+            
+            // Filter button hover effects
+            filterButtons.forEach(button => {
+                button.addEventListener('mouseenter', function() {
+                    if (!this.classList.contains('active')) {
+                        const icon = this.querySelector('i');
+                        icon.style.transform = 'scale(1.1) rotate(5deg)';
+                        icon.style.transition = 'transform 0.3s ease';
+                    }
+                });
+                
+                button.addEventListener('mouseleave', function() {
+                    if (!this.classList.contains('active')) {
+                        const icon = this.querySelector('i');
+                        icon.style.transform = 'scale(1) rotate(0deg)';
+                    }
+                });
+            });
+            
+            // Gallery item hover effects
+            galleryItems.forEach(item => {
+                item.addEventListener('mouseenter', function() {
+                    const zoom = this.querySelector('.gallery-zoom i');
+                    if (zoom) {
+                        zoom.style.transform = 'scale(1.2)';
+                        zoom.style.transition = 'transform 0.3s ease';
+                    }
+                });
+                
+                item.addEventListener('mouseleave', function() {
+                    const zoom = this.querySelector('.gallery-zoom i');
+                    if (zoom) {
+                        zoom.style.transform = 'scale(1)';
+                    }
+                });
+            });
+            
+            // Animate gallery items on scroll
+            const observerOptions = {
+                threshold: 0.2,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            entry.target.style.opacity = '1';
+                            entry.target.style.transform = 'translateY(0) scale(1)';
+                        }, index * 100);
+                    }
+                });
+            }, observerOptions);
+            
+            // Initially set all gallery items for animation
+            galleryItems.forEach(item => {
+                item.style.opacity = '0';
+                item.style.transform = 'translateY(30px) scale(0.95)';
+                item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(item);
+            });
+            
+            // Animate stats on scroll
+            const statCards = document.querySelectorAll('.stat-card');
+            statCards.forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(card);
+            });
+            
+            // Animate stat numbers
+            const statNumbers = document.querySelectorAll('.stat-number');
+            const statsObserver = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        statNumbers.forEach(stat => {
+                            if (stat.id === 'totalImages') return; // Don't animate total images
+                            const target = parseInt(stat.textContent);
+                            const suffix = stat.textContent.replace(/[0-9+]/g, '');
+                            let current = 0;
+                            const increment = target / 30;
+                            const timer = setInterval(() => {
+                                current += increment;
+                                if (current >= target) {
+                                    current = target;
+                                    clearInterval(timer);
+                                }
+                                stat.textContent = Math.floor(current) + suffix;
+                            }, 50);
+                        });
+                        statsObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            const statsContainer = document.querySelector('.gallery-stats');
+            if (statsContainer) {
+                statsObserver.observe(statsContainer);
+            }
+            
+            // CTA button hover effects
+            const ctaButtons = document.querySelectorAll('.cta-button');
+            ctaButtons.forEach(button => {
+                button.addEventListener('mouseenter', function() {
+                    const icon = this.querySelector('i');
+                    if (icon) {
+                        icon.style.transform = 'scale(1.2)';
+                        icon.style.transition = 'transform 0.3s ease';
+                    }
+                });
+                
+                button.addEventListener('mouseleave', function() {
+                    const icon = this.querySelector('i');
+                    if (icon) {
+                        icon.style.transform = 'scale(1)';
+                    }
+                });
+            });
+            
+            // Smooth scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    if (this.getAttribute('href').startsWith('#')) {
+                        e.preventDefault();
+                        const targetId = this.getAttribute('href');
+                        if(targetId === '#') return;
+                        
+                        const targetElement = document.querySelector(targetId);
+                        if(targetElement) {
+                            window.scrollTo({
+                                top: targetElement.offsetTop - 100,
+                                behavior: 'smooth'
+                            });
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

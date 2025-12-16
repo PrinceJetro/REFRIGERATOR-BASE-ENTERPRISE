@@ -1,0 +1,1717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Refrigerator Base Enterprise</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: #003366;
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo-icon {
+            font-size: 1.8rem;
+            color: #4da6ff;
+        }
+        
+        .logo h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .logo span {
+            color: #4da6ff;
+        }
+        
+        /* Navigation Styles */
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            padding: 5px 0;
+            position: relative;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: #4da6ff;
+        }
+        
+        nav a.active {
+            color: #4da6ff;
+        }
+        
+        nav a.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #4da6ff;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(rgba(0, 51, 102, 0.9), rgba(0, 51, 102, 0.8)), url('img/header1.jpeg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+        }
+        
+        .page-header-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .page-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .page-subtitle {
+            font-size: 1.5rem;
+            color: #e6f2ff;
+            margin-bottom: 30px;
+        }
+        
+        .breadcrumb {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.1rem;
+        }
+        
+        .breadcrumb a {
+            color: #4da6ff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .breadcrumb a:hover {
+            color: white;
+        }
+        
+        .breadcrumb .separator {
+            color: #999;
+        }
+        
+        /* Contact Section */
+        .contact-section {
+            padding: 80px 20px;
+            background-color: white;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title {
+            font-size: 2.8rem;
+            color: #003366;
+            margin-bottom: 15px;
+            font-weight: 800;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(to right, #4da6ff, #00cc66);
+            border-radius: 2px;
+        }
+        
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 700px;
+            margin: 25px auto 0;
+            line-height: 1.6;
+        }
+        
+        /* Contact Layout */
+        .contact-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 80px;
+        }
+        
+        /* Contact Info */
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+        
+        .info-card {
+            background: #f8fafc;
+            border-radius: 15px;
+            padding: 35px;
+            border-left: 5px solid #4da6ff;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            border-left-color: #00cc66;
+        }
+        
+        .info-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+        
+        .info-icon {
+            width: 70px;
+            height: 70px;
+            background: #e6f2ff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #4da6ff;
+            font-size: 2rem;
+            flex-shrink: 0;
+        }
+        
+        .info-card:nth-child(2) .info-icon {
+            background: #e6fff2;
+            color: #00cc66;
+        }
+        
+        .info-card:nth-child(3) .info-icon {
+            background: #fff2e6;
+            color: #ff9900;
+        }
+        
+        .info-card:nth-child(4) .info-icon {
+            background: #f9f2ff;
+            color: #9966ff;
+        }
+        
+        .info-title {
+            font-size: 1.6rem;
+            color: #003366;
+            font-weight: 600;
+            margin: 0;
+        }
+        
+        .info-content {
+            padding-left: 90px;
+        }
+        
+        .info-item {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+        
+        .info-item i {
+            color: #4da6ff;
+            font-size: 1.2rem;
+            margin-top: 3px;
+            flex-shrink: 0;
+        }
+        
+        .info-text {
+            flex-grow: 1;
+        }
+        
+        .info-label {
+            display: block;
+            font-weight: 600;
+            color: #003366;
+            margin-bottom: 5px;
+            font-size: 1.1rem;
+        }
+        
+        .info-value {
+            color: #555;
+            font-size: 1.05rem;
+            line-height: 1.5;
+        }
+        
+        .info-link {
+            color: #4da6ff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            display: inline-block;
+            margin-top: 5px;
+        }
+        
+        .info-link:hover {
+            color: #0066cc;
+            text-decoration: underline;
+        }
+        
+        /* Emergency Contact */
+        .emergency-contact {
+            background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 20px;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 10px 30px rgba(255, 107, 107, 0.2); }
+            50% { box-shadow: 0 10px 40px rgba(255, 107, 107, 0.4); }
+        }
+        
+        .emergency-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .emergency-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .emergency-text {
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+        
+        .emergency-btn {
+            background: white;
+            color: #ff6b6b;
+            padding: 15px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            border: 2px solid white;
+        }
+        
+        .emergency-btn:hover {
+            background: transparent;
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        /* Contact Form */
+        .contact-form-container {
+            background: #f8fafc;
+            border-radius: 20px;
+            padding: 50px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+        }
+        
+        .form-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .form-title {
+            font-size: 2.2rem;
+            color: #003366;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        
+        .form-subtitle {
+            color: #666;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+        
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+        
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        .form-label {
+            font-weight: 600;
+            color: #003366;
+            font-size: 1.05rem;
+        }
+        
+        .form-input,
+        .form-textarea,
+        .form-select {
+            padding: 16px 20px;
+            border: 2px solid #e6f0fa;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: white;
+        }
+        
+        .form-input:focus,
+        .form-textarea:focus,
+        .form-select:focus {
+            outline: none;
+            border-color: #4da6ff;
+            box-shadow: 0 0 0 3px rgba(77, 166, 255, 0.1);
+        }
+        
+        .form-textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .form-select {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23003366' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 20px center;
+            background-size: 16px;
+            padding-right: 50px;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        .submit-btn {
+            background: linear-gradient(135deg, #003366, #004488);
+            color: white;
+            border: none;
+            padding: 18px 40px;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 10px;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(0, 51, 102, 0.3);
+            background: linear-gradient(135deg, #004488, #0055aa);
+        }
+        
+        .form-note {
+            text-align: center;
+            color: #666;
+            font-size: 0.95rem;
+            margin-top: 20px;
+            line-height: 1.5;
+        }
+        
+        /* Map Section */
+        .map-section {
+            margin-bottom: 80px;
+        }
+        
+        .map-container {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+            height: 500px;
+            position: relative;
+        }
+        
+        .map-placeholder {
+            height: 100%;
+            background: linear-gradient(135deg, #e6f2ff, #f0f7ff);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            color: #003366;
+        }
+        
+        .map-placeholder i {
+            font-size: 4rem;
+            opacity: 0.7;
+        }
+        
+        .map-placeholder h3 {
+            font-size: 1.8rem;
+            font-weight: 600;
+        }
+        
+        .map-placeholder p {
+            text-align: center;
+            max-width: 400px;
+            color: #666;
+        }
+        
+        .map-overlay {
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            max-width: 350px;
+        }
+        
+        .map-overlay h3 {
+            color: #003366;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+            font-weight: 600;
+        }
+        
+        .map-overlay p {
+            color: #666;
+            line-height: 1.5;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+        
+        .map-overlay i {
+            color: #4da6ff;
+            margin-top: 3px;
+            flex-shrink: 0;
+        }
+        
+        /* Quick Contact */
+        .quick-contact {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-bottom: 80px;
+        }
+        
+        .quick-card {
+            background: white;
+            padding: 35px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+            border: 2px solid #e6f0fa;
+            transition: all 0.3s ease;
+        }
+        
+        .quick-card:hover {
+            transform: translateY(-10px);
+            border-color: #4da6ff;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+        
+        .quick-icon {
+            width: 80px;
+            height: 80px;
+            background: #e6f2ff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            color: #4da6ff;
+            font-size: 2.5rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .quick-card:hover .quick-icon {
+            transform: scale(1.1) rotate(10deg);
+        }
+        
+        .quick-card:nth-child(2) .quick-icon {
+            background: #e6fff2;
+            color: #00cc66;
+        }
+        
+        .quick-card:nth-child(3) .quick-icon {
+            background: #fff2e6;
+            color: #ff9900;
+        }
+        
+        .quick-card:nth-child(4) .quick-icon {
+            background: #f9f2ff;
+            color: #9966ff;
+        }
+        
+        .quick-title {
+            font-size: 1.4rem;
+            color: #003366;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .quick-text {
+            color: #666;
+            margin-bottom: 25px;
+            line-height: 1.5;
+        }
+        
+        .quick-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 30px;
+            background: #003366;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid #003366;
+        }
+        
+        .quick-btn:hover {
+            background: #004488;
+            border-color: #004488;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 51, 102, 0.2);
+        }
+        
+        .quick-card:nth-child(2) .quick-btn {
+            background: #00cc66;
+            border-color: #00cc66;
+        }
+        
+        .quick-card:nth-child(2) .quick-btn:hover {
+            background: #00b359;
+            border-color: #00b359;
+        }
+        
+        .quick-card:nth-child(3) .quick-btn {
+            background: #25D366;
+            border-color: #25D366;
+        }
+        
+        .quick-card:nth-child(3) .quick-btn:hover {
+            background: #1da851;
+            border-color: #1da851;
+        }
+        
+        .quick-card:nth-child(4) .quick-btn {
+            background: #4da6ff;
+            border-color: #4da6ff;
+        }
+        
+        .quick-card:nth-child(4) .quick-btn:hover {
+            background: #3399ff;
+            border-color: #3399ff;
+        }
+        
+        /* Business Hours */
+        .business-hours {
+            background: linear-gradient(135deg, #003366, #004488);
+            color: white;
+            padding: 50px;
+            border-radius: 20px;
+            margin-bottom: 80px;
+        }
+        
+        .hours-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .hours-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        
+        .hours-subtitle {
+            color: #e6f2ff;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        
+        .hours-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .hour-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease;
+        }
+        
+        .hour-item:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+        
+        .day {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #4da6ff;
+        }
+        
+        .time {
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+        
+        /* WhatsApp Floating Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25D366;
+            color: white;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.3);
+            z-index: 100;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .whatsapp-float:hover {
+            background: #1da851;
+            transform: scale(1.1);
+            box-shadow: 0 15px 40px rgba(37, 211, 102, 0.4);
+        }
+        
+        .whatsapp-tooltip {
+            position: absolute;
+            bottom: 80px;
+            right: 10px;
+            background: white;
+            color: #333;
+            padding: 10px 15px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+        
+        .whatsapp-tooltip::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            right: 20px;
+            border-width: 8px;
+            border-style: solid;
+            border-color: white transparent transparent transparent;
+        }
+        
+        .whatsapp-float:hover .whatsapp-tooltip {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Footer Styles */
+        footer {
+            background-color: #002244;
+            color: white;
+            padding: 40px 0 20px;
+            margin-top: 40px;
+        }
+        
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            padding: 0 20px;
+        }
+        
+        .footer-column h3 {
+            color: #4da6ff;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: #4da6ff;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-column ul li a {
+            color: #cccccc;
+            text-decoration: none;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .footer-column ul li a:hover {
+            color: #4da6ff;
+        }
+        
+        .contact-info li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 15px;
+            color: #cccccc;
+        }
+        
+        .contact-info i {
+            color: #4da6ff;
+            margin-top: 3px;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #999;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .contact-layout {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .quick-contact {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .hours-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                padding: 10px 20px;
+            }
+            
+            .logo {
+                width: 100%;
+                justify-content: space-between;
+                margin-bottom: 10px;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            nav {
+                width: 100%;
+                display: none;
+            }
+            
+            nav.active {
+                display: block;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                gap: 0;
+                width: 100%;
+            }
+            
+            nav ul li {
+                width: 100%;
+                text-align: center;
+                padding: 12px 0;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+            
+            .page-header {
+                padding: 80px 20px;
+            }
+            
+            .page-title {
+                font-size: 2.5rem;
+            }
+            
+            .page-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .contact-section {
+                padding: 60px 15px;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+            
+            .section-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .info-content {
+                padding-left: 0;
+                margin-top: 20px;
+            }
+            
+            .info-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+            
+            .contact-form-container {
+                padding: 35px 25px;
+            }
+            
+            .form-title {
+                font-size: 1.8rem;
+            }
+            
+            .quick-contact {
+                grid-template-columns: 1fr;
+            }
+            
+            .hours-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .business-hours {
+                padding: 40px 25px;
+            }
+            
+            .hours-title {
+                font-size: 1.8rem;
+            }
+            
+            .map-overlay {
+                position: relative;
+                top: 0;
+                left: 0;
+                max-width: 100%;
+                margin-bottom: 20px;
+            }
+            
+            .whatsapp-float {
+                width: 60px;
+                height: 60px;
+                font-size: 1.8rem;
+                bottom: 20px;
+                right: 20px;
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .page-title {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .info-card {
+                padding: 25px;
+            }
+            
+            .form-title {
+                font-size: 1.6rem;
+            }
+            
+            .map-container {
+                height: 400px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+                bottom: 15px;
+                right: 15px;
+            }
+            
+            .whatsapp-tooltip {
+                font-size: 0.8rem;
+                padding: 8px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <div class="logo-icon">
+                    <img src="LOGO.jpeg" alt="" width="50" height="50">
+                </div>
+                <h1>REFRIGERATOR <span>BASE</span> ENTERPRISE</h1>
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            
+            <nav id="mainNav">
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="about.html"><i class="fas fa-info-circle"></i> About</a></li>
+                    <li><a href="services.html"><i class="fas fa-box"></i> Services</a></li>
+                    <li><a href="gallery.html"><i class="fas fa-images"></i> Gallery</a></li>
+                    <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="page-header-content">
+            <h1 class="page-title">Contact Us</h1>
+            <p class="page-subtitle">Get in touch with our marine refrigeration experts for support, quotes, and technical assistance</p>
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span class="separator">/</span>
+                <span>Contact</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Get In Touch</h2>
+                <p class="section-subtitle">We're here to help with all your marine refrigeration needs. Contact us through any of the channels below.</p>
+            </div>
+
+            <!-- Contact Layout -->
+            <div class="contact-layout">
+                <!-- Contact Info -->
+                <div class="contact-info">
+                    <!-- Address Card -->
+                    <div class="info-card">
+                        <div class="info-header">
+                            <div class="info-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <h3 class="info-title">Our Location</h3>
+                        </div>
+                        <div class="info-content">
+                            <div class="info-item">
+                                <i class="fas fa-building"></i>
+                                <div class="info-text">
+                                    <span class="info-label">Company Address</span>
+                                    <span class="info-value">11B Forcados Road, Apapa, Lagos State, Nigeria</span>
+                                    <a href="https://maps.google.com/?q=11B+Forcados+Road,+Apapa,+Lagos+State,+Nigeria" target="_blank" class="info-link">
+                                        <i class="fas fa-directions"></i> Get Directions
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-clock"></i>
+                                <div class="info-text">
+                                    <span class="info-label">Business Hours</span>
+                                    <span class="info-value">Monday - Friday: 8:00 AM - 6:00 PM</span>
+                                    <span class="info-value">Saturday: 9:00 AM - 4:00 PM</span>
+                                    <span class="info-value">Sunday: Emergency Support Only</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Phone Card -->
+                    <div class="info-card">
+                        <div class="info-header">
+                            <div class="info-icon">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <h3 class="info-title">Phone & WhatsApp</h3>
+                        </div>
+                        <div class="info-content">
+                            <div class="info-item">
+                                <i class="fas fa-phone"></i>
+                                <div class="info-text">
+                                    <span class="info-label">Primary Phone</span>
+                                    <a href="tel:+2347062397529" class="info-value info-link">
+                                        +234 706 239 7529
+                                    </a>
+                                    <span class="info-value">(Click to call)</span>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-phone"></i>
+                                <div class="info-text">
+                                    <span class="info-label">Secondary Phone</span>
+                                    <a href="tel:+2348067571759" class="info-value info-link">
+                                        +234 806 757 1759
+                                    </a>
+                                    <span class="info-value">(Click to call)</span>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <i class="fab fa-whatsapp"></i>
+                                <div class="info-text">
+                                    <span class="info-label">WhatsApp Business</span>
+                                    <a href="https://wa.me/2347062397529" target="_blank" class="info-value info-link">
+                                        +234 706 239 7529
+                                    </a>
+                                    <span class="info-value">(Quick chat available)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Email Card -->
+                    <div class="info-card">
+                        <div class="info-header">
+                            <div class="info-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <h3 class="info-title">Email & Online</h3>
+                        </div>
+                        <div class="info-content">
+                            <div class="info-item">
+                                <i class="fas fa-envelope"></i>
+                                <div class="info-text">
+                                    <span class="info-label">General Inquiries</span>
+                                    <a href="mailto:contact@refrigeratorbaseenterprise.com" class="info-value info-link">
+                                        contact@refrigeratorbaseenterprise.com
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-headset"></i>
+                                <div class="info-text">
+                                    <span class="info-label">Technical Support</span>
+                                    <a href="mailto:support@refrigeratorbaseenterprise.com" class="info-value info-link">
+                                        support@refrigeratorbaseenterprise.com
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-shopping-cart"></i>
+                                <div class="info-text">
+                                    <span class="info-label">Sales & Quotations</span>
+                                    <a href="mailto:sales@refrigeratorbaseenterprise.com" class="info-value info-link">
+                                        sales@refrigeratorbaseenterprise.com
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Emergency Contact -->
+                    <div class="emergency-contact">
+                        <div class="emergency-icon">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+                        <h3 class="emergency-title">24/7 Emergency Support</h3>
+                        <p class="emergency-text">For urgent compressor failures or critical spare parts needs</p>
+                        <a href="tel:+2347062397529" class="emergency-btn">
+                            <i class="fas fa-phone-alt"></i> Call Emergency Line
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="contact-form-container">
+                    <div class="form-header">
+                        <h3 class="form-title">Send Us a Message</h3>
+                        <p class="form-subtitle">Fill out the form below and our team will get back to you within 24 hours.</p>
+                    </div>
+                    
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name" class="form-label">Full Name *</label>
+                                <input type="text" id="name" class="form-input" placeholder="Your full name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="company" class="form-label">Company Name</label>
+                                <input type="text" id="company" class="form-input" placeholder="Your company (optional)">
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email" class="form-label">Email Address *</label>
+                                <input type="email" id="email" class="form-input" placeholder="your.email@example.com" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone" class="form-label">Phone Number *</label>
+                                <input type="tel" id="phone" class="form-input" placeholder="+234 000 000 0000" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject" class="form-label">Subject *</label>
+                            <select id="subject" class="form-select" required>
+                                <option value="">Select inquiry type</option>
+                                <option value="technical">Technical Support</option>
+                                <option value="quote">Request Quote</option>
+                                <option value="spare-parts">Spare Parts Inquiry</option>
+                                <option value="workshop">Workshop Services</option>
+                                <option value="other">Other Inquiry</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message" class="form-label">Message *</label>
+                            <textarea id="message" class="form-textarea" placeholder="Please describe your requirements in detail..." required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn">
+                            <i class="fas fa-paper-plane"></i> Send Message
+                        </button>
+                        
+                        <p class="form-note">
+                            By submitting this form, you agree to our Privacy Policy. We'll never share your information with third parties.
+                        </p>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Map Section -->
+            <div class="map-section">
+                <div class="map-container">
+                    <div class="map-placeholder">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <h3>Google Maps Location</h3>
+                        <p>Our workshop is located at 11B Forcados Road, Apapa, Lagos State, Nigeria</p>
+                    </div>
+                    <div class="map-overlay">
+                        <h3>Visit Our Workshop</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> 11B Forcados Road, Apapa, Lagos State, Nigeria</p>
+                        <p><i class="fas fa-clock"></i> Mon-Fri: 8:00 AM - 6:00 PM</p>
+                        <p><i class="fas fa-phone"></i> +234 706 239 7529</p>
+                        <p><i class="fas fa-envelope"></i> contact@refrigeratorbaseenterprise.com</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Contact -->
+            <div class="quick-contact">
+                <div class="quick-card">
+                    <div class="quick-icon">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <h4 class="quick-title">Call Us Directly</h4>
+                    <p class="quick-text">Speak with our technical team for immediate assistance</p>
+                    <a href="tel:+2347062397529" class="quick-btn">
+                        <i class="fas fa-phone"></i> Call Now
+                    </a>
+                </div>
+                
+                <div class="quick-card">
+                    <div class="quick-icon">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <h4 class="quick-title">WhatsApp Chat</h4>
+                    <p class="quick-text">Quick chat for quotes and technical questions</p>
+                    <a href="https://wa.me/2347062397529" target="_blank" class="quick-btn">
+                        <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+                    </a>
+                </div>
+                
+                <div class="quick-card">
+                    <div class="quick-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h4 class="quick-title">Send Email</h4>
+                    <p class="quick-text">Email us for detailed inquiries and documentation</p>
+                    <a href="mailto:contact@refrigeratorbaseenterprise.com" class="quick-btn">
+                        <i class="fas fa-envelope"></i> Send Email
+                    </a>
+                </div>
+                
+                <div class="quick-card">
+                    <div class="quick-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h4 class="quick-title">Technical Support</h4>
+                    <p class="quick-text">24/7 support for emergency breakdowns</p>
+                    <a href="tel:+2347062397529" class="quick-btn">
+                        <i class="fas fa-life-ring"></i> Get Support
+                    </a>
+                </div>
+            </div>
+
+            <!-- Business Hours -->
+            <div class="business-hours">
+                <div class="hours-header">
+                    <h3 class="hours-title">Business Hours</h3>
+                    <p class="hours-subtitle">Our team is available to assist you during these hours. Emergency support is available 24/7.</p>
+                </div>
+                <div class="hours-grid">
+                    <div class="hour-item">
+                        <div class="day">Monday - Friday</div>
+                        <div class="time">8:00 AM - 6:00 PM</div>
+                    </div>
+                    <div class="hour-item">
+                        <div class="day">Saturday</div>
+                        <div class="time">9:00 AM - 4:00 PM</div>
+                    </div>
+                    <div class="hour-item">
+                        <div class="day">Sunday</div>
+                        <div class="time">Emergency Support Only</div>
+                    </div>
+                    <div class="hour-item">
+                        <div class="day">Emergency Line</div>
+                        <div class="time">24/7 Available</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>Company</h3>
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                    <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                    <li><a href="services.html"><i class="fas fa-chevron-right"></i> Our Services</a></li>
+                    <li><a href="products.html"><i class="fas fa-chevron-right"></i> Products</a></li>
+                    <li><a href="gallery.html"><i class="fas fa-chevron-right"></i> Gallery</a></li>
+                    <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Our Services</h3>
+                <ul>
+                    <li><a href="#"><i class="fas fa-cog"></i> Technical Support</a></li>
+                    <li><a href="#"><i class="fas fa-compress-arrows-alt"></i> Compressors</a></li>
+                    <li><a href="#"><i class="fas fa-tools"></i> Spare Parts</a></li>
+                    <li><a href="#"><i class="fas fa-industry"></i> Workshop Services</a></li>
+                    <li><a href="#"><i class="fas fa-bolt"></i> Electric Parts</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Contact Info</h3>
+                <ul class="contact-info">
+                    <li>
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>11B Forcados Road, Apapa, Lagos State, Nigeria</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-phone"></i>
+                        <span>+234 706 239 7529<br>+234 806 757 1759</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-envelope"></i>
+                        <span>contact@refrigeratorbaseenterprise.com</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Global Reach</h3>
+                <p style="color: #cccccc; margin-bottom: 20px;">We provide marine refrigeration solutions to clients worldwide with our extensive database and partnerships with all major OEMs.</p>
+                <div style="color: #4da6ff; font-size: 2rem;">
+                    <i class="fas fa-globe-americas"></i>
+                    <i class="fas fa-anchor"></i>
+                    <i class="fas fa-ship"></i>
+                </div>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>&copy; 2023 Refrigerator Base Enterprise. All Rights Reserved. | Specialists in Marine Refrigeration & Air Conditioning Systems</p>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/2347062397529" target="_blank" class="whatsapp-float">
+        <i class="fab fa-whatsapp"></i>
+        <span class="whatsapp-tooltip">Chat with us on WhatsApp</span>
+    </a>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            const nav = document.getElementById('mainNav');
+            nav.classList.toggle('active');
+            const icon = this.querySelector('i');
+            if (icon.classList.contains('fa-bars')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+        
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                const nav = document.getElementById('mainNav');
+                if (nav.classList.contains('active')) {
+                    nav.classList.remove('active');
+                    const icon = document.querySelector('.mobile-menu-btn i');
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+        });
+        
+        // Contact Form Submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+            
+            // In a real implementation, you would send this data to your server
+            // For now, we'll show a success message
+            alert(`Thank you ${name}! Your message has been sent successfully.\n\nWe will contact you at ${email} or ${phone} within 24 hours.\n\nSubject: ${subject}\n\nMessage: ${message.substring(0, 100)}...`);
+            
+            // Reset form
+            this.reset();
+            
+            // Scroll to top of form
+            this.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+        
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.2,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }, index * 100);
+                }
+            });
+        }, observerOptions);
+        
+        // Animate info cards
+        const infoCards = document.querySelectorAll('.info-card');
+        infoCards.forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+        
+        // Animate quick cards
+        const quickCards = document.querySelectorAll('.quick-card');
+        quickCards.forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+        
+        // Animate hour items
+        const hourItems = document.querySelectorAll('.hour-item');
+        hourItems.forEach(item => {
+            item.style.opacity = '0';
+            item.style.transform = 'translateY(20px)';
+            item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(item);
+        });
+        
+        // Hover effects for info icons
+        infoCards.forEach(card => {
+            const icon = card.querySelector('.info-icon i');
+            if (icon) {
+                card.addEventListener('mouseenter', function() {
+                    icon.style.transform = 'scale(1.1) rotate(10deg)';
+                    icon.style.transition = 'transform 0.3s ease';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    icon.style.transform = 'scale(1) rotate(0deg)';
+                });
+            }
+        });
+        
+        // Hover effects for quick cards
+        quickCards.forEach(card => {
+            const icon = card.querySelector('.quick-icon i');
+            if (icon) {
+                card.addEventListener('mouseenter', function() {
+                    icon.style.transform = 'scale(1.2) rotate(15deg)';
+                    icon.style.transition = 'transform 0.3s ease';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    icon.style.transform = 'scale(1) rotate(0deg)';
+                });
+            }
+            
+            // Button hover effect
+            const button = card.querySelector('.quick-btn');
+            if (button) {
+                card.addEventListener('mouseenter', function() {
+                    const btnIcon = button.querySelector('i');
+                    if (btnIcon) {
+                        btnIcon.style.transform = 'scale(1.2)';
+                        btnIcon.style.transition = 'transform 0.3s ease';
+                    }
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    const btnIcon = button.querySelector('i');
+                    if (btnIcon) {
+                        btnIcon.style.transform = 'scale(1)';
+                    }
+                });
+            }
+        });
+        
+        // Form input focus effects
+        const formInputs = document.querySelectorAll('.form-input, .form-textarea, .form-select');
+        formInputs.forEach(input => {
+            input.addEventListener('focus', function() {
+                this.parentElement.style.transform = 'translateY(-2px)';
+                this.parentElement.style.transition = 'transform 0.3s ease';
+            });
+            
+            input.addEventListener('blur', function() {
+                this.parentElement.style.transform = 'translateY(0)';
+            });
+        });
+        
+        // Submit button hover effect
+        const submitBtn = document.querySelector('.submit-btn');
+        if (submitBtn) {
+            submitBtn.addEventListener('mouseenter', function() {
+                const icon = this.querySelector('i');
+                if (icon) {
+                    icon.style.transform = 'translateX(5px) scale(1.2)';
+                    icon.style.transition = 'transform 0.3s ease';
+                }
+            });
+            
+            submitBtn.addEventListener('mouseleave', function() {
+                const icon = this.querySelector('i');
+                if (icon) {
+                    icon.style.transform = 'translateX(0) scale(1)';
+                }
+            });
+        }
+        
+        // Emergency button hover effect
+        const emergencyBtn = document.querySelector('.emergency-btn');
+        if (emergencyBtn) {
+            emergencyBtn.addEventListener('mouseenter', function() {
+                const icon = this.querySelector('i');
+                if (icon) {
+                    icon.style.transform = 'scale(1.2)';
+                    icon.style.transition = 'transform 0.3s ease';
+                }
+            });
+            
+            emergencyBtn.addEventListener('mouseleave', function() {
+                const icon = this.querySelector('i');
+                if (icon) {
+                    icon.style.transform = 'scale(1)';
+                }
+            });
+        }
+        
+        // WhatsApp float hover effect
+        const whatsappFloat = document.querySelector('.whatsapp-float');
+        if (whatsappFloat) {
+            whatsappFloat.addEventListener('mouseenter', function() {
+                const icon = this.querySelector('i');
+                if (icon) {
+                    icon.style.transform = 'scale(1.1) rotate(5deg)';
+                    icon.style.transition = 'transform 0.3s ease';
+                }
+            });
+            
+            whatsappFloat.addEventListener('mouseleave', function() {
+                const icon = this.querySelector('i');
+                if (icon) {
+                    icon.style.transform = 'scale(1) rotate(0deg)';
+                }
+            });
+        }
+        
+        // Phone number formatting (optional enhancement)
+        const phoneInput = document.getElementById('phone');
+        if (phoneInput) {
+            phoneInput.addEventListener('input', function(e) {
+                let value = e.target.value.replace(/\D/g, '');
+                if (value.length > 0) {
+                    value = '+234 ' + value.substring(0, 10).replace(/(\d{3})(\d{3})(\d{4})/, '$1 $2 $3');
+                }
+                e.target.value = value;
+            });
+        }
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                if (this.getAttribute('href').startsWith('#')) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if(targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if(targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+        
+        // Initialize with animations
+        document.addEventListener('DOMContentLoaded', function() {
+            // Trigger initial animations
+            setTimeout(() => {
+                infoCards.forEach((card, index) => {
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    }, index * 200);
+                });
+            }, 500);
+        });
+    </script>
+</body>
+</html>

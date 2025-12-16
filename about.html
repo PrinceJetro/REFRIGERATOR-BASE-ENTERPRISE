@@ -1,0 +1,1896 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Refrigerator Base Enterprise</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: #003366;
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo-icon {
+            font-size: 1.8rem;
+            color: #4da6ff;
+        }
+        
+        .logo h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .logo span {
+            color: #4da6ff;
+        }
+        
+        /* Navigation Styles */
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            padding: 5px 0;
+            position: relative;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: #4da6ff;
+        }
+        
+        nav a.active {
+            color: #4da6ff;
+        }
+        
+        nav a.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #4da6ff;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(rgba(0, 51, 102, 0.9), rgba(0, 51, 102, 0.8)), url('./img/banner.jpeg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+        }
+        
+        .page-header-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .page-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .page-subtitle {
+            font-size: 1.5rem;
+            color: #e6f2ff;
+            margin-bottom: 30px;
+        }
+        
+        .breadcrumb {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.1rem;
+        }
+        
+        .breadcrumb a {
+            color: #4da6ff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .breadcrumb a:hover {
+            color: white;
+        }
+        
+        .breadcrumb .separator {
+            color: #999;
+        }
+        
+        /* Company Overview Section */
+        .company-overview {
+            padding: 80px 20px;
+            background-color: white;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            color: #003366;
+            margin-bottom: 15px;
+            font-weight: 700;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, #4da6ff, #00cc66);
+            border-radius: 2px;
+        }
+        
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 700px;
+            margin: 25px auto 0;
+            line-height: 1.6;
+        }
+        
+        /* Profile Section */
+        .profile-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            margin-bottom: 60px;
+        }
+        
+        .profile-content {
+            padding-right: 20px;
+        }
+        
+        .profile-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #e6f2ff;
+            padding: 10px 20px;
+            border-radius: 30px;
+            margin-bottom: 25px;
+            color: #003366;
+            font-weight: 600;
+        }
+        
+        .profile-badge i {
+            color: #4da6ff;
+        }
+        
+        .profile-heading {
+            font-size: 2.2rem;
+            color: #003366;
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+        
+        .profile-heading span {
+            color: #4da6ff;
+        }
+        
+        .profile-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 25px;
+        }
+        
+        .highlight-box {
+            background: #f8fafc;
+            border-left: 5px solid #4da6ff;
+            padding: 25px;
+            border-radius: 0 8px 8px 0;
+            margin: 30px 0;
+        }
+        
+        .highlight-box p {
+            font-size: 1.2rem;
+            color: #003366;
+            font-weight: 500;
+            line-height: 1.6;
+        }
+        
+        .profile-image {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .profile-image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+        
+        .profile-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        .image-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 51, 102, 0.9);
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-size: 0.95rem;
+        }
+        
+        /* Key Points Grid */
+        .key-points {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .key-point {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e6f0fa;
+            transition: all 0.3s ease;
+        }
+        
+        .key-point:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            border-color: #4da6ff;
+        }
+        
+        .key-point-icon {
+            width: 70px;
+            height: 70px;
+            background: #e6f2ff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            color: #4da6ff;
+            font-size: 1.8rem;
+        }
+        
+        .key-point h3 {
+            font-size: 1.4rem;
+            color: #003366;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .key-point p {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        /* Core Values */
+        .core-values {
+            background: #f8fafc;
+            padding: 80px 20px;
+            margin-top: 60px;
+            border-radius: 20px;
+        }
+        
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .value-card {
+            text-align: center;
+            padding: 30px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .value-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .value-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #4da6ff, #0066cc);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            color: white;
+            font-size: 2rem;
+        }
+        
+        .value-card h3 {
+            font-size: 1.4rem;
+            color: #003366;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .value-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        /* Footer Styles */
+        footer {
+            background-color: #002244;
+            color: white;
+            padding: 40px 0 20px;
+            margin-top: 40px;
+        }
+        
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            padding: 0 20px;
+        }
+        
+        .footer-column h3 {
+            color: #4da6ff;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: #4da6ff;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-column ul li a {
+            color: #cccccc;
+            text-decoration: none;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .footer-column ul li a:hover {
+            color: #4da6ff;
+        }
+        
+        .contact-info li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 15px;
+            color: #cccccc;
+        }
+        
+        .contact-info i {
+            color: #4da6ff;
+            margin-top: 3px;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #999;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .profile-section {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .profile-content {
+                padding-right: 0;
+            }
+            
+            .profile-heading {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                padding: 10px 20px;
+            }
+            
+            .logo {
+                width: 100%;
+                justify-content: space-between;
+                margin-bottom: 10px;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            nav {
+                width: 100%;
+                display: none;
+            }
+            
+            nav.active {
+                display: block;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                gap: 0;
+                width: 100%;
+            }
+            
+            nav ul li {
+                width: 100%;
+                text-align: center;
+                padding: 12px 0;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+            
+            .page-header {
+                padding: 80px 20px;
+            }
+            
+            .page-title {
+                font-size: 2.5rem;
+            }
+            
+            .page-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .company-overview {
+                padding: 60px 15px;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .section-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .key-points {
+                grid-template-columns: 1fr;
+            }
+            
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .page-title {
+                font-size: 2rem;
+            }
+            
+            .profile-heading {
+                font-size: 1.8rem;
+            }
+            
+            .highlight-box {
+                padding: 20px;
+            }
+            
+            .highlight-box p {
+                font-size: 1.1rem;
+            }
+            
+            .key-point, .value-card {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <div class="logo-icon">
+                    <img src="LOGO.jpeg" alt="" width="50" height="50">
+                </div>
+                <h1>REFRIGERATOR <span>BASE</span> ENTERPRISE</h1>
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            
+            <nav id="mainNav">
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="about.html"><i class="fas fa-info-circle"></i> About</a></li>
+                    <li><a href="services.html"><i class="fas fa-box"></i> Services</a></li>
+                    <li><a href="gallery.html"><i class="fas fa-images"></i> Gallery</a></li>
+                    <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="page-header-content">
+            <h1 class="page-title">About Our Company</h1>
+            <p class="page-subtitle">Global marine refrigeration specialists with Greek excellence and Nigerian presence</p>
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span class="separator">/</span>
+                <span>About Us</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Company Overview Section -->
+    <section class="company-overview">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Company Profile</h2>
+                <p class="section-subtitle">Learn about our mission, expertise, and global reach in marine refrigeration</p>
+            </div>
+            
+            <div class="profile-section">
+                <div class="profile-content">
+                    <div class="profile-badge">
+                        <i class="fas fa-flag"></i>
+                        <span>Greek-owned, Nigeria-based</span>
+                    </div>
+                    
+                    <h2 class="profile-heading">REFRIGERATOR <span>BASE</span> ENTERPRISE</h2>
+                    
+                    <p class="profile-text">
+                        <strong>REFRIGERATOR BASE ENTERPRISE</strong> is a Greek company based in Lagos, Nigeria. 
+                        We specialize in marine refrigeration and air conditioning systems, parts, and technical support 
+                        for vessels worldwide.
+                    </p>
+                    
+                    <p class="profile-text">
+                        Our core offering revolves around the global sourcing, procurement, and worldwide delivery 
+                        of marine refrigeration spare parts, products, and accessories. We leverage an extensive 
+                        database and a spare parts center staff who work with all major marine refrigeration 
+                        Original Equipment Manufacturers (OEMs).
+                    </p>
+                    
+                    <div class="highlight-box">
+                        <p>
+                            "We can source, procure and arrange the delivery of marine refrigeration spare parts, 
+                            products and accessories worldwide to your vessels or company."
+                        </p>
+                    </div>
+                    
+                    <p class="profile-text">
+                        Our spare parts centre staff deal with all the major marine refrigeration original equipment 
+                        manufacturers, and using our extensive database we can locate and deliver the very important 
+                        items to your vessels or company. We also give support for compressor and spare part for your 
+                        system.
+                    </p>
+                </div>
+                
+                <div class="profile-image">
+                    <img src="LOGO.jpeg" alt="Marine Refrigeration Equipment">
+                    <div class="image-caption">
+                        Refrigerator Base Enterprise - Marine Refrigeration Specialists
+                    </div>
+                </div>
+            </div>
+            
+            <div class="key-points">
+                <div class="key-point">
+                    <div class="key-point-icon">
+                        <i class="fas fa-globe-americas"></i>
+                    </div>
+                    <h3>Global Sourcing Network</h3>
+                    <p>We leverage our extensive global network to source and procure marine refrigeration parts from manufacturers worldwide, ensuring availability and competitive pricing.</p>
+                </div>
+                
+                <div class="key-point">
+                    <div class="key-point-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3>Extensive Parts Database</h3>
+                    <p>Our comprehensive database contains information on thousands of marine refrigeration parts, allowing us to quickly locate and deliver critical components.</p>
+                </div>
+                
+                <div class="key-point">
+                    <div class="key-point-icon">
+                        <i class="fas fa-ship"></i>
+                    </div>
+                    <h3>Direct Vessel Support</h3>
+                    <p>We provide direct support to vessels worldwide, delivering critical parts to ports across the globe to minimize downtime and ensure operational continuity.</p>
+                </div>
+            </div>
+            
+            <div class="core-values">
+                <div class="section-header">
+                    <h2 class="section-title">Our Core Values</h2>
+                    <p class="section-subtitle">The principles that guide our operations and customer relationships</p>
+                </div>
+                
+                <div class="values-grid">
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <h3>Quality Excellence</h3>
+                        <p>We guarantee the quality of all our spare parts and services, ensuring reliability and performance for marine operations.</p>
+                    </div>
+                    
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h3>Customer Partnership</h3>
+                        <p>We build long-term relationships with our clients, understanding their needs and providing tailored solutions.</p>
+                    </div>
+                    
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h3>Rapid Response</h3>
+                        <p>Time is critical in marine operations. We prioritize quick response times and fast delivery of critical parts.</p>
+                    </div>
+                    
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <h3>Technical Expertise</h3>
+                        <p>Our team consists of experienced professionals with deep knowledge of marine refrigeration systems and OEM specifications.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+        <!-- Mission & Vision Section -->
+    <section class="mission-vision">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Mission & Vision</h2>
+                <p class="section-subtitle">Driving excellence in marine refrigeration solutions worldwide</p>
+            </div>
+            
+            <div class="mission-vision-grid">
+                <!-- Mission Card -->
+                <div class="mv-card mission">
+                    <div class="mv-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3>Our Mission</h3>
+                    <p>To provide exceptional marine refrigeration solutions through global sourcing, technical expertise, and reliable delivery, ensuring optimal vessel performance and minimizing downtime for maritime operators worldwide.</p>
+                    <div class="mv-points">
+                        <div class="point">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Global procurement of authentic OEM parts</span>
+                        </div>
+                        <div class="point">
+                            <i class="fas fa-check-circle"></i>
+                            <span>24/7 technical support for marine operations</span>
+                        </div>
+                        <div class="point">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Worldwide delivery to any port</span>
+                        </div>
+                        <div class="point">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Quality guarantee on all products and services</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Vision Card -->
+                <div class="mv-card vision">
+                    <div class="mv-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3>Our Vision</h3>
+                    <p>To become the leading global partner for marine refrigeration solutions, recognized for our technical excellence, reliable service, and commitment to advancing sustainable cooling technologies in the maritime industry.</p>
+                    <div class="mv-points">
+                        <div class="point">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Expand global network to 50+ countries</span>
+                        </div>
+                        <div class="point">
+                            <i class="fas fa-leaf"></i>
+                            <span>Pioneer eco-friendly refrigeration solutions</span>
+                        </div>
+                        <div class="point">
+                            <i class="fas fa-graduation-cap"></i>
+                            <span>Establish training center for marine engineers</span>
+                        </div>
+                        <div class="point">
+                            <i class="fas fa-handshake"></i>
+                            <span>Strategic partnerships with all major OEMs</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mission-statement">
+                <div class="statement-content">
+                    <i class="fas fa-quote-right"></i>
+                    <p>We bridge the gap between global marine refrigeration manufacturers and vessel operators, ensuring seamless operations through reliable parts supply and expert technical support.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Our Global Reach Section -->
+    <section class="global-reach">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our Global Reach</h2>
+                <p class="section-subtitle">Shipping marine refrigeration parts from Lagos to ports worldwide</p>
+            </div>
+            
+            <div class="global-content">
+                <div class="map-container">
+                    <div class="world-map">
+                        <div class="lagos-pin">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div class="pin-label">Lagos, Nigeria</div>
+                        </div>
+                        <div class="shipping-line europe"></div>
+                        <div class="shipping-line asia"></div>
+                        <div class="shipping-line americas"></div>
+                        <div class="shipping-line middle-east"></div>
+                        <div class="shipping-line africa"></div>
+                    </div>
+                    
+                    <div class="map-legend">
+                        <div class="legend-item">
+                            <div class="legend-color primary"></div>
+                            <span>Major shipping routes</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color secondary"></div>
+                            <span>Headquarters in Lagos</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="reach-stats">
+                    <div class="stat-card">
+                        <div class="stat-number">40+</div>
+                        <div class="stat-label">Countries Served</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">500+</div>
+                        <div class="stat-label">Ports Delivered To</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">24/7</div>
+                        <div class="stat-label">Global Support</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">15+</div>
+                        <div class="stat-label">Shipping Partners</div>
+                    </div>
+                </div>
+                
+                <div class="shipping-process">
+                    <h3>Our Shipping Process</h3>
+                    <div class="process-steps">
+                        <div class="step">
+                            <div class="step-number">1</div>
+                            <h4>Order Received</h4>
+                            <p>We receive your order and verify part specifications</p>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">2</div>
+                            <h4>Global Sourcing</h4>
+                            <p>Source from our extensive OEM network worldwide</p>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">3</div>
+                            <h4>Quality Check</h4>
+                            <p>Thorough inspection and testing of all parts</p>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">4</div>
+                            <h4>Worldwide Delivery</h4>
+                            <p>Express shipping to your specified port</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Our Expertise Section -->
+    <section class="our-expertise">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our Expertise</h2>
+                <p class="section-subtitle">Specialized knowledge across all marine cooling and refrigeration systems</p>
+            </div>
+            
+            <div class="expertise-grid">
+                <!-- Marine Refrigeration -->
+                <div class="expertise-card">
+                    <div class="expertise-header">
+                        <div class="expertise-icon">
+                            <i class="fas fa-ship"></i>
+                        </div>
+                        <h3>Marine Refrigeration</h3>
+                    </div>
+                    <div class="expertise-content">
+                        <p>Complete refrigeration systems for fishing vessels, cargo ships, and passenger liners. Specializing in low-temperature applications for fish holds and cargo refrigeration.</p>
+                        <ul class="expertise-list">
+                            <li><i class="fas fa-check"></i> Fish hold refrigeration systems</li>
+                            <li><i class="fas fa-check"></i> Cargo refrigeration units</li>
+                            <li><i class="fas fa-check"></i> Provision cooling systems</li>
+                            <li><i class="fas fa-check"></i> Ice-making machines</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Industrial Refrigeration -->
+                <div class="expertise-card">
+                    <div class="expertise-header">
+                        <div class="expertise-icon">
+                            <i class="fas fa-industry"></i>
+                        </div>
+                        <h3>Industrial Refrigeration</h3>
+                    </div>
+                    <div class="expertise-content">
+                        <p>Heavy-duty refrigeration solutions for processing plants, cold storage facilities, and industrial applications requiring precise temperature control.</p>
+                        <ul class="expertise-list">
+                            <li><i class="fas fa-check"></i> Ammonia refrigeration systems</li>
+                            <li><i class="fas fa-check"></i> Cold storage solutions</li>
+                            <li><i class="fas fa-check"></i> Process cooling systems</li>
+                            <li><i class="fas fa-check"></i> Blast freezing equipment</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Air Dryers -->
+                <div class="expertise-card">
+                    <div class="expertise-header">
+                        <div class="expertise-icon">
+                            <i class="fas fa-wind"></i>
+                        </div>
+                        <h3>Air Dryers</h3>
+                    </div>
+                    <div class="expertise-content">
+                        <p>Compressed air drying systems essential for marine applications, preventing moisture damage to pneumatic systems and instrumentation.</p>
+                        <ul class="expertise-list">
+                            <li><i class="fas fa-check"></i> Refrigerated air dryers</li>
+                            <li><i class="fas fa-check"></i> Desiccant air dryers</li>
+                            <li><i class="fas fa-check"></i> Membrane air dryers</li>
+                            <li><i class="fas fa-check"></i> Heatless regeneration dryers</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Air Conditioning Systems -->
+                <div class="expertise-card">
+                    <div class="expertise-header">
+                        <div class="expertise-icon">
+                            <i class="fas fa-snowflake"></i>
+                        </div>
+                        <h3>Air Conditioning Systems</h3>
+                    </div>
+                    <div class="expertise-content">
+                        <p>Marine HVAC systems for crew comfort and equipment cooling, including specialized systems for engine rooms and electronic equipment.</p>
+                        <ul class="expertise-list">
+                            <li><i class="fas fa-check"></i> Cabin air conditioning</li>
+                            <li><i class="fas fa-check"></i> Engine room cooling</li>
+                            <li><i class="fas fa-check"></i> Electronics cooling systems</li>
+                            <li><i class="fas fa-check"></i> Central AC systems</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="expertise-cta">
+                <div class="cta-content">
+                    <h3>Need Technical Support?</h3>
+                    <p>Our team of certified engineers is available 24/7 to provide expert advice and support for all your marine refrigeration needs.</p>
+                    <a href="contact.html" class="cta-button">
+                        <i class="fas fa-headset"></i> Contact Our Experts
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<style>
+    /* Mission & Vision Styles */
+    .mission-vision {
+        padding: 80px 20px;
+        background-color: #f8fafc;
+    }
+    
+    .mission-vision-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 40px;
+        margin-bottom: 50px;
+    }
+    
+    .mv-card {
+        background: white;
+        padding: 40px;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .mv-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    }
+    
+    .mv-card.mission {
+        border-top: 5px solid #4da6ff;
+    }
+    
+    .mv-card.vision {
+        border-top: 5px solid #00cc66;
+    }
+    
+    .mv-icon {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 25px;
+        font-size: 2.5rem;
+    }
+    
+    .mission .mv-icon {
+        background: #e6f2ff;
+        color: #4da6ff;
+    }
+    
+    .vision .mv-icon {
+        background: #e6fff2;
+        color: #00cc66;
+    }
+    
+    .mv-card h3 {
+        font-size: 1.8rem;
+        color: #003366;
+        margin-bottom: 20px;
+        font-weight: 700;
+    }
+    
+    .mv-card p {
+        color: #555;
+        line-height: 1.7;
+        margin-bottom: 30px;
+        font-size: 1.05rem;
+    }
+    
+    .mv-points {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .point {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+    }
+    
+    .point i {
+        color: #4da6ff;
+        margin-top: 3px;
+        flex-shrink: 0;
+    }
+    
+    .vision .point i {
+        color: #00cc66;
+    }
+    
+    .point span {
+        color: #555;
+        font-size: 0.95rem;
+        line-height: 1.5;
+    }
+    
+    .mission-statement {
+        background: linear-gradient(135deg, #003366, #004488);
+        color: white;
+        padding: 50px;
+        border-radius: 15px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .mission-statement::before {
+        content: '';
+        position: absolute;
+        top: -50px;
+        right: -50px;
+        width: 150px;
+        height: 150px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+    }
+    
+    .statement-content {
+        position: relative;
+        z-index: 2;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+    
+    .statement-content i {
+        font-size: 3rem;
+        color: #4da6ff;
+        margin-bottom: 20px;
+        opacity: 0.7;
+    }
+    
+    .statement-content p {
+        font-size: 1.4rem;
+        line-height: 1.6;
+        font-style: italic;
+        margin: 0;
+    }
+    
+    /* Global Reach Styles */
+    .global-reach {
+        padding: 80px 20px;
+        background-color: white;
+    }
+    
+    .global-content {
+        display: flex;
+        flex-direction: column;
+        gap: 60px;
+    }
+    
+    .map-container {
+        position: relative;
+        background: #f0f7ff;
+        border-radius: 15px;
+        padding: 40px;
+        overflow: hidden;
+        min-height: 400px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .world-map {
+        position: relative;
+        width: 100%;
+        height: 300px;
+        background: linear-gradient(135deg, #e6f2ff, #f0f7ff);
+        border-radius: 10px;
+        border: 2px dashed #4da6ff;
+    }
+    
+    .lagos-pin {
+        position: absolute;
+        top: 50%;
+        left: 25%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        z-index: 10;
+    }
+    
+    .lagos-pin i {
+        font-size: 3rem;
+        color: #ff6666;
+        filter: drop-shadow(0 0 10px rgba(255, 102, 102, 0.5));
+        animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.1); }
+        100% { transform: scale(1); }
+    }
+    
+    .pin-label {
+        background: #003366;
+        color: white;
+        padding: 8px 15px;
+        border-radius: 20px;
+        font-weight: 600;
+        margin-top: 10px;
+        white-space: nowrap;
+    }
+    
+    .shipping-line {
+        position: absolute;
+        height: 3px;
+        background: linear-gradient(90deg, #4da6ff, transparent);
+        animation: shipMove 8s linear infinite;
+    }
+    
+    .shipping-line.europe {
+        top: 25%;
+        left: 25%;
+        width: 40%;
+        transform: rotate(15deg);
+        animation-delay: 0s;
+    }
+    
+    .shipping-line.asia {
+        top: 40%;
+        left: 25%;
+        width: 50%;
+        transform: rotate(25deg);
+        animation-delay: 1s;
+    }
+    
+    .shipping-line.americas {
+        top: 60%;
+        left: 25%;
+        width: 45%;
+        transform: rotate(-20deg);
+        animation-delay: 2s;
+    }
+    
+    .shipping-line.middle-east {
+        top: 50%;
+        left: 25%;
+        width: 35%;
+        transform: rotate(5deg);
+        animation-delay: 3s;
+    }
+    
+    .shipping-line.africa {
+        top: 65%;
+        left: 25%;
+        width: 30%;
+        transform: rotate(-5deg);
+        animation-delay: 4s;
+    }
+    
+    @keyframes shipMove {
+        0% {
+            background: linear-gradient(90deg, #4da6ff, transparent);
+            width: 0%;
+        }
+        50% {
+            background: linear-gradient(90deg, #4da6ff, #4da6ff);
+            width: var(--target-width);
+        }
+        100% {
+            background: linear-gradient(90deg, transparent, #4da6ff);
+            width: var(--target-width);
+            left: 100%;
+        }
+    }
+    
+    .map-legend {
+        display: flex;
+        gap: 30px;
+        margin-top: 30px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .legend-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    
+    .legend-color {
+        width: 20px;
+        height: 20px;
+        border-radius: 4px;
+    }
+    
+    .legend-color.primary {
+        background: #4da6ff;
+    }
+    
+    .legend-color.secondary {
+        background: #ff6666;
+    }
+    
+    .legend-item span {
+        color: #003366;
+        font-weight: 500;
+    }
+    
+    .reach-stats {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 25px;
+    }
+    
+    .stat-card {
+        background: white;
+        padding: 30px;
+        border-radius: 10px;
+        text-align: center;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        border: 2px solid #e6f0fa;
+        transition: all 0.3s ease;
+    }
+    
+    .stat-card:hover {
+        transform: translateY(-5px);
+        border-color: #4da6ff;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+    }
+    
+    .stat-number {
+        font-size: 2.5rem;
+        font-weight: 800;
+        color: #003366;
+        margin-bottom: 10px;
+        line-height: 1;
+    }
+    
+    .stat-label {
+        color: #666;
+        font-size: 1rem;
+        font-weight: 500;
+    }
+    
+    .shipping-process h3 {
+        font-size: 2rem;
+        color: #003366;
+        text-align: center;
+        margin-bottom: 40px;
+    }
+    
+    .process-steps {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 30px;
+    }
+    
+    .step {
+        text-align: center;
+        padding: 30px 20px;
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        position: relative;
+        border-top: 5px solid #4da6ff;
+    }
+    
+    .step-number {
+        position: absolute;
+        top: -20px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 40px;
+        height: 40px;
+        background: #4da6ff;
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 1.2rem;
+    }
+    
+    .step h4 {
+        font-size: 1.3rem;
+        color: #003366;
+        margin-bottom: 15px;
+        font-weight: 600;
+    }
+    
+    .step p {
+        color: #666;
+        font-size: 0.95rem;
+        line-height: 1.5;
+    }
+    
+    /* Our Expertise Styles */
+    .our-expertise {
+        padding: 80px 20px;
+        background-color: #f8fafc;
+    }
+    
+    .expertise-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+        margin-bottom: 50px;
+    }
+    
+    .expertise-card {
+        background: white;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        transition: all 0.3s ease;
+        border: 1px solid #e6f0fa;
+    }
+    
+    .expertise-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        border-color: #4da6ff;
+    }
+    
+    .expertise-header {
+        background: linear-gradient(135deg, #003366, #004488);
+        color: white;
+        padding: 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .expertise-icon {
+        width: 70px;
+        height: 70px;
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+        font-size: 2rem;
+    }
+    
+    .expertise-header h3 {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin: 0;
+    }
+    
+    .expertise-content {
+        padding: 30px;
+    }
+    
+    .expertise-content p {
+        color: #555;
+        line-height: 1.6;
+        margin-bottom: 20px;
+    }
+    
+    .expertise-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .expertise-list li {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        margin-bottom: 12px;
+        color: #666;
+        font-size: 0.95rem;
+    }
+    
+    .expertise-list i {
+        color: #4da6ff;
+        margin-top: 3px;
+        flex-shrink: 0;
+    }
+    
+    .expertise-cta {
+        background: white;
+        border-radius: 15px;
+        padding: 50px;
+        text-align: center;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        border: 2px solid #e6f0fa;
+    }
+    
+    .cta-content h3 {
+        font-size: 2rem;
+        color: #003366;
+        margin-bottom: 15px;
+        font-weight: 700;
+    }
+    
+    .cta-content p {
+        color: #666;
+        font-size: 1.1rem;
+        max-width: 700px;
+        margin: 0 auto 30px;
+        line-height: 1.6;
+    }
+    
+    .expertise-cta .cta-button {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        background: #003366;
+        color: white;
+        padding: 15px 35px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1.1rem;
+        transition: all 0.3s ease;
+        border: 2px solid #003366;
+    }
+    
+    .expertise-cta .cta-button:hover {
+        background: #004488;
+        border-color: #004488;
+        transform: translateY(-3px);
+        box-shadow: 0 10px 25px rgba(0, 51, 102, 0.3);
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 992px) {
+        .mission-vision-grid {
+            grid-template-columns: 1fr;
+        }
+        
+        .reach-stats {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        
+        .process-steps {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+    
+    @media (max-width: 768px) {
+        .mission-vision,
+        .global-reach,
+        .our-expertise {
+            padding: 60px 15px;
+        }
+        
+        .mv-card {
+            padding: 30px;
+        }
+        
+        .mission-statement {
+            padding: 40px 30px;
+        }
+        
+        .statement-content p {
+            font-size: 1.2rem;
+        }
+        
+        .map-container {
+            padding: 30px 20px;
+        }
+        
+        .world-map {
+            height: 250px;
+        }
+        
+        .lagos-pin i {
+            font-size: 2.5rem;
+        }
+        
+        .pin-label {
+            font-size: 0.9rem;
+            padding: 6px 12px;
+        }
+        
+        .reach-stats,
+        .process-steps {
+            grid-template-columns: 1fr;
+        }
+        
+        .expertise-grid {
+            grid-template-columns: 1fr;
+        }
+        
+        .expertise-cta {
+            padding: 40px 30px;
+        }
+        
+        .cta-content h3 {
+            font-size: 1.8rem;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .mv-card {
+            padding: 25px;
+        }
+        
+        .mv-card h3 {
+            font-size: 1.6rem;
+        }
+        
+        .statement-content p {
+            font-size: 1.1rem;
+        }
+        
+        .shipping-process h3 {
+            font-size: 1.8rem;
+        }
+        
+        .cta-content h3 {
+            font-size: 1.6rem;
+        }
+        
+        .expertise-cta {
+            padding: 30px 20px;
+        }
+    }
+</style>
+
+<script>
+    // Animate shipping lines
+    document.addEventListener('DOMContentLoaded', function() {
+        // Set target widths for shipping lines
+        const shippingLines = document.querySelectorAll('.shipping-line');
+        shippingLines.forEach(line => {
+            const width = line.style.width;
+            line.style.setProperty('--target-width', width);
+            line.style.width = '0%';
+        });
+        
+        // Animate stats
+        const statNumbers = document.querySelectorAll('.stat-number');
+        const observerOptions = {
+            threshold: 0.5,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const statsObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    statNumbers.forEach(stat => {
+                        const current = parseInt(stat.textContent);
+                        const suffix = stat.textContent.replace(/[0-9]/g, '');
+                        let count = 0;
+                        const increment = current / 30;
+                        const timer = setInterval(() => {
+                            count += increment;
+                            if (count >= current) {
+                                count = current;
+                                clearInterval(timer);
+                            }
+                            stat.textContent = Math.floor(count) + suffix;
+                        }, 50);
+                    });
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+        
+        const statsContainer = document.querySelector('.reach-stats');
+        if (statsContainer) {
+            statsObserver.observe(statsContainer);
+        }
+        
+        // Animate expertise cards on scroll
+        const expertiseCards = document.querySelectorAll('.expertise-card');
+        const expertiseObserver = new IntersectionObserver(function(entries) {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }, index * 200);
+                }
+            });
+        }, { threshold: 0.2 });
+        
+        expertiseCards.forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            expertiseObserver.observe(card);
+        });
+        
+        // Animate mission/vision cards
+        const mvCards = document.querySelectorAll('.mv-card');
+        mvCards.forEach((card, index) => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            
+            setTimeout(() => {
+                card.style.opacity = '1';
+                card.style.transform = 'translateY(0)';
+            }, 300 + (index * 200));
+        });
+        
+        // Process steps hover effect
+        const steps = document.querySelectorAll('.step');
+        steps.forEach(step => {
+            step.addEventListener('mouseenter', function() {
+                const number = this.querySelector('.step-number');
+                if (number) {
+                    number.style.transform = 'translateX(-50%) scale(1.1)';
+                    number.style.transition = 'transform 0.3s ease';
+                }
+            });
+            
+            step.addEventListener('mouseleave', function() {
+                const number = this.querySelector('.step-number');
+                if (number) {
+                    number.style.transform = 'translateX(-50%) scale(1)';
+                }
+            });
+        });
+        
+        // Expertise card hover enhancement
+        expertiseCards.forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                const icon = this.querySelector('.expertise-icon i');
+                if (icon) {
+                    icon.style.transform = 'rotate(15deg) scale(1.1)';
+                    icon.style.transition = 'transform 0.3s ease';
+                }
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                const icon = this.querySelector('.expertise-icon i');
+                if (icon) {
+                    icon.style.transform = 'rotate(0deg) scale(1)';
+                }
+            });
+        });
+    });
+</script>
+
+
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>Company</h3>
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                    <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Our Services</a></li>
+                    <li><a href="gallery.html"><i class="fas fa-chevron-right"></i> Gallery</a></li>
+                    <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Our Services</h3>
+                <ul>
+                    <li><a href="#"><i class="fas fa-cog"></i> Technical Support</a></li>
+                    <li><a href="#"><i class="fas fa-compress-arrows-alt"></i> Compressors</a></li>
+                    <li><a href="#"><i class="fas fa-tools"></i> Spare Parts</a></li>
+                    <li><a href="#"><i class="fas fa-industry"></i> Workshop Services</a></li>
+                    <li><a href="#"><i class="fas fa-bolt"></i> Electric Parts</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Contact Info</h3>
+                <ul class="contact-info">
+                    <li>
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>11B Forcados Road, Apapa, Lagos State, Nigeria</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-phone"></i>
+                        <span>+234 706 239 7529<br>+234 806 757 1759</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-envelope"></i>
+                        <span>contact@refrigeratorbaseenterprise.com</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Global Reach</h3>
+                <p style="color: #cccccc; margin-bottom: 20px;">We provide marine refrigeration solutions to clients worldwide with our extensive database and partnerships with all major OEMs.</p>
+                <div style="color: #4da6ff; font-size: 2rem;">
+                    <i class="fas fa-globe-americas"></i>
+                    <i class="fas fa-anchor"></i>
+                    <i class="fas fa-ship"></i>
+                </div>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>&copy; 2023 Refrigerator Base Enterprise. All Rights Reserved. | Specialists in Marine Refrigeration & Air Conditioning Systems</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            const nav = document.getElementById('mainNav');
+            nav.classList.toggle('active');
+            const icon = this.querySelector('i');
+            if (icon.classList.contains('fa-bars')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+        
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                const nav = document.getElementById('mainNav');
+                if (nav.classList.contains('active')) {
+                    nav.classList.remove('active');
+                    const icon = document.querySelector('.mobile-menu-btn i');
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+        });
+        
+        // Animate elements on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const animateOnScroll = function() {
+                const elements = document.querySelectorAll('.key-point, .value-card');
+                
+                elements.forEach(element => {
+                    const elementPosition = element.getBoundingClientRect().top;
+                    const screenPosition = window.innerHeight / 1.2;
+                    
+                    if (elementPosition < screenPosition) {
+                        element.style.opacity = '1';
+                        element.style.transform = 'translateY(0)';
+                    }
+                });
+            };
+            
+            // Set initial state
+            const elements = document.querySelectorAll('.key-point, .value-card');
+            elements.forEach(element => {
+                element.style.opacity = '0';
+                element.style.transform = 'translateY(30px)';
+                element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            });
+            
+            // Animate on load and scroll
+            window.addEventListener('load', animateOnScroll);
+            window.addEventListener('scroll', animateOnScroll);
+            
+            // Highlight box animation
+            const highlightBox = document.querySelector('.highlight-box');
+            if (highlightBox) {
+                highlightBox.style.opacity = '0';
+                highlightBox.style.transform = 'translateX(-20px)';
+                highlightBox.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+                
+                setTimeout(() => {
+                    highlightBox.style.opacity = '1';
+                    highlightBox.style.transform = 'translateX(0)';
+                }, 500);
+            }
+        });
+        
+        // Image hover effect enhancement
+        const profileImage = document.querySelector('.profile-image');
+        if (profileImage) {
+            profileImage.addEventListener('mouseenter', function() {
+                const img = this.querySelector('img');
+                if (img) {
+                    img.style.transform = 'scale(1.05)';
+                }
+            });
+            
+            profileImage.addEventListener('mouseleave', function() {
+                const img = this.querySelector('img');
+                if (img) {
+                    img.style.transform = 'scale(1)';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
