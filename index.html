@@ -309,11 +309,6 @@
             <div class="slide-overlay"></div>
         </div>
         
-        <!-- Slideshow Navigation -->
-        <div class="slideshow-nav">
-            <button class="slide-prev"><i class="fas fa-chevron-left"></i></button>
-            <button class="slide-next"><i class="fas fa-chevron-right"></i></button>
-        </div>
         
         <!-- Slide Indicators -->
         <div class="slide-indicators">
@@ -666,8 +661,6 @@
     document.addEventListener('DOMContentLoaded', function() {
         const slides = document.querySelectorAll('.slide');
         const indicators = document.querySelectorAll('.indicator');
-        const prevBtn = document.querySelector('.slide-prev');
-        const nextBtn = document.querySelector('.slide-next');
         let currentSlide = 0;
         let slideInterval;
         
@@ -705,18 +698,6 @@
             clearInterval(slideInterval);
         }
         
-        // Event listeners for navigation buttons
-        prevBtn.addEventListener('click', function() {
-            stopSlideshow();
-            prevSlide();
-            startSlideshow();
-        });
-        
-        nextBtn.addEventListener('click', function() {
-            stopSlideshow();
-            nextSlide();
-            startSlideshow();
-        });
         
         // Event listeners for indicators
         indicators.forEach((indicator, index) => {
@@ -1146,7 +1127,14 @@
 <script>
     // Service Cards Interaction
     document.addEventListener('DOMContentLoaded', function() {
-            
+        // Get all service cards
+        const serviceCards = document.querySelectorAll('.service-card, .card');
+        
+        // Check if service cards exist
+        if (!serviceCards.length) return;
+        
+        // Add functionality to each service card
+        serviceCards.forEach(card => {
             // Add keyboard navigation support
             card.addEventListener('keypress', function(e) {
                 if (e.key === 'Enter' || e.key === ' ') {
@@ -1164,6 +1152,22 @@
             card.addEventListener('blur', function() {
                 this.style.outline = 'none';
             });
+            
+            // Add smooth hover effects
+            card.addEventListener('mouseenter', function() {
+                const icon = this.querySelector('.card-icon i');
+                if (icon) {
+                    icon.style.transform = 'rotate(5deg)';
+                    icon.style.transition = 'transform 0.3s ease';
+                }
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                const icon = this.querySelector('.card-icon i');
+                if (icon) {
+                    icon.style.transform = 'rotate(0deg)';
+                }
+            });
         });
         
         // Contact CTA button
@@ -1175,24 +1179,15 @@
                     alert('Redirecting to contact form or contact page. This will allow you to send inquiries directly to the team.');
                 }
             });
-        }
-        
-        // Add smooth hover effects
-        serviceCards.forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                const icon = this.querySelector('.card-icon i');
-                if (icon) {
-                    icon.style.transform = 'rotate(5deg)';
-                }
-            });
             
-            card.addEventListener('mouseleave', function() {
-                const icon = this.querySelector('.card-icon i');
-                if (icon) {
-                    icon.style.transform = 'rotate(0deg)';
+            // Make CTA button keyboard accessible
+            contactCta.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    this.click();
                 }
             });
-        });
+        }
     });
 </script>
 
@@ -1304,7 +1299,7 @@
                 <div class="gallery-notes">
                     <div class="note">
                         <i class="fas fa-info-circle"></i>
-                        <p>All images showcase our actual facilities and team. Replace with your photos.</p>
+                        <p>All images showcase our actual facilities and team.</p>
                     </div>
                 </div>
             </div>
@@ -3590,9 +3585,7 @@
     // Testimonial Slider Functionality
     document.addEventListener('DOMContentLoaded', function() {
         const testimonials = document.querySelectorAll('.testimonial');
-        const indicators = document.querySelectorAll('.testimonial-indicators .indicator');
-        const prevBtn = document.querySelector('.testimonial-prev');
-        const nextBtn = document.querySelector('.testimonial-next');
+        const indicators = document.querySelectorAll('.testimonial-indicators .indicator');        
         let currentTestimonial = 0;
         let testimonialInterval;
         
@@ -3620,21 +3613,9 @@
         
         // Start automatic slider
         function startTestimonialSlider() {
+            clearInterval(testimonialInterval); // Clear any existing interval
             testimonialInterval = setInterval(nextTestimonial, 8000); // Change every 8 seconds
         }
-        
-        // Event listeners for navigation buttons
-        prevBtn.addEventListener('click', function() {
-            clearInterval(testimonialInterval);
-            prevTestimonial();
-            startTestimonialSlider();
-        });
-        
-        nextBtn.addEventListener('click', function() {
-            clearInterval(testimonialInterval);
-            nextTestimonial();
-            startTestimonialSlider();
-        });
         
         // Event listeners for indicators
         indicators.forEach((indicator, index) => {
@@ -3647,49 +3628,44 @@
         
         // Pause slider when hovering over testimonials
         const testimonialSlider = document.querySelector('.testimonial-slider');
-        testimonialSlider.addEventListener('mouseenter', function() {
-            clearInterval(testimonialInterval);
-        });
-        
-        testimonialSlider.addEventListener('mouseleave', function() {
-            startTestimonialSlider();
-        });
+        if (testimonialSlider) {
+            testimonialSlider.addEventListener('mouseenter', function() {
+                clearInterval(testimonialInterval);
+            });
+            
+            testimonialSlider.addEventListener('mouseleave', function() {
+                startTestimonialSlider();
+            });
+        }
         
         // Initialize the slider
         showTestimonial(0);
         startTestimonialSlider();
-        
-            
-            // Hover animation for icons
-            card.addEventListener('mouseenter', function() {
-                const icon = this.querySelector('.logo-placeholder i');
-                if (icon) {
-                    icon.style.transform = 'rotate(15deg) scale(1.1)';
-                    icon.style.transition = 'transform 0.3s ease';
-                }
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                const icon = this.querySelector('.logo-placeholder i');
-                if (icon) {
-                    icon.style.transform = 'rotate(0deg) scale(1)';
-                }
-            });
-        });
-        
+    });
+    
+    // CTA Section and Interactive Elements
+    document.addEventListener('DOMContentLoaded', function() {
         // CTA button interactions
         const ctaButtons = document.querySelectorAll('.cta-button');
         
         ctaButtons.forEach(button => {
-            button.addEventListener('click', function(e) {
-                if (!this.getAttribute('href').includes('tel:') && 
-                    !this.getAttribute('href').includes('mailto:') && 
-                    !this.getAttribute('href').includes('https://')) {
-                    e.preventDefault();
-                    const action = this.querySelector('.button-title').textContent;
-                    alert(`In a live website, this would ${action.toLowerCase()}.`);
-                }
-            });
+            // Check if button has href attribute
+            const href = button.getAttribute('href');
+            if (href) {
+                button.addEventListener('click', function(e) {
+                    // Only prevent default for internal links or demo links
+                    if (href === '#' || href.startsWith('#') || 
+                        href.includes('javascript:') || 
+                        (!href.includes('tel:') && 
+                         !href.includes('mailto:') && 
+                         !href.includes('https://') && 
+                         !href.includes('http://'))) {
+                        e.preventDefault();
+                        const buttonText = button.textContent.trim() || 'perform this action';
+                        alert(`In a live website, this button would ${buttonText.toLowerCase()}.`);
+                    }
+                });
+            }
             
             // Hover effect enhancement
             button.addEventListener('mouseenter', function() {
@@ -3711,11 +3687,15 @@
         // Emergency badge animation
         const emergencyBadge = document.querySelector('.emergency-badge');
         if (emergencyBadge) {
+            let isPulsing = false;
             setInterval(() => {
-                emergencyBadge.style.boxShadow = emergencyBadge.style.boxShadow 
-                    ? '' 
-                    : '0 0 15px rgba(255, 107, 107, 0.7)';
+                if (isPulsing) {
+                    emergencyBadge.style.boxShadow = 'none';
+                } else {
+                    emergencyBadge.style.boxShadow = '0 0 15px rgba(255, 107, 107, 0.7)';
+                }
                 emergencyBadge.style.transition = 'box-shadow 0.5s ease';
+                isPulsing = !isPulsing;
             }, 1000);
         }
         
@@ -3726,32 +3706,34 @@
             rootMargin: '0px 0px -100px 0px'
         };
         
-        const ctaObserver = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const stats = entry.target.querySelectorAll('.stat');
-                    const buttons = entry.target.querySelectorAll('.cta-button');
-                    
-                    stats.forEach((stat, index) => {
-                        setTimeout(() => {
-                            stat.style.opacity = '1';
-                            stat.style.transform = 'translateX(0)';
-                        }, index * 200);
-                    });
-                    
-                    buttons.forEach((button, index) => {
-                        setTimeout(() => {
-                            button.style.opacity = '1';
-                            button.style.transform = 'translateY(0)';
-                        }, 600 + (index * 200));
-                    });
-                    
-                    ctaObserver.unobserve(entry.target);
-                }
-            });
-        }, observerOptions);
-        
-        if (ctaSection) {
+        if (ctaSection && 'IntersectionObserver' in window) {
+            const ctaObserver = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const stats = entry.target.querySelectorAll('.stat');
+                        const buttons = entry.target.querySelectorAll('.cta-button');
+                        
+                        // Animate stats
+                        stats.forEach((stat, index) => {
+                            setTimeout(() => {
+                                stat.style.opacity = '1';
+                                stat.style.transform = 'translateX(0)';
+                            }, index * 200);
+                        });
+                        
+                        // Animate buttons
+                        buttons.forEach((button, index) => {
+                            setTimeout(() => {
+                                button.style.opacity = '1';
+                                button.style.transform = 'translateY(0)';
+                            }, 600 + (index * 200));
+                        });
+                        
+                        ctaObserver.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+            
             // Set initial states
             const stats = ctaSection.querySelectorAll('.stat');
             const buttons = ctaSection.querySelectorAll('.cta-button');
@@ -3770,10 +3752,31 @@
             
             ctaObserver.observe(ctaSection);
         }
+        
+        // If you have cards that need hover effects, add them here
+        // Example for service cards or feature cards:
+        const cards = document.querySelectorAll('.card, .service-card, .feature-card');
+        cards.forEach(card => {
+            // Hover animation for icons
+            card.addEventListener('mouseenter', function() {
+                const icon = this.querySelector('.logo-placeholder i, .card-icon i, .icon i');
+                if (icon) {
+                    icon.style.transform = 'rotate(15deg) scale(1.1)';
+                    icon.style.transition = 'transform 0.3s ease';
+                }
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                const icon = this.querySelector('.logo-placeholder i, .card-icon i, .icon i');
+                if (icon) {
+                    icon.style.transform = 'rotate(0deg) scale(1)';
+                }
+            });
+        });
     });
 </script>
 
-    <!-- Footer -->
+<!-- Footer -->
     <footer>
         <div class="footer-container">
             <div class="footer-column">

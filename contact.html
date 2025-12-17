@@ -1245,32 +1245,32 @@
                         <p class="form-subtitle">Fill out the form below and our team will get back to you within 24 hours.</p>
                     </div>
                     
-                    <form class="contact-form" id="contactForm">
+                    <form class="contact-form" id="contactForm" action="https://formspree.io/f/xpwvvgnz" method="POST">
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="name" class="form-label">Full Name *</label>
-                                <input type="text" id="name" class="form-input" placeholder="Your full name" required>
+                                <input type="text" id="name" class="form-input" placeholder="Your full name" required name="full_name">
                             </div>
                             <div class="form-group">
                                 <label for="company" class="form-label">Company Name</label>
-                                <input type="text" id="company" class="form-input" placeholder="Your company (optional)">
+                                <input type="text" id="company" class="form-input" placeholder="Your company (optional)" name="company_name">
                             </div>
                         </div>
                         
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="email" class="form-label">Email Address *</label>
-                                <input type="email" id="email" class="form-input" placeholder="your.email@example.com" required>
+                                <input type="email" id="email" class="form-input" placeholder="your.email@example.com" required name="email">
                             </div>
                             <div class="form-group">
                                 <label for="phone" class="form-label">Phone Number *</label>
-                                <input type="tel" id="phone" class="form-input" placeholder="+234 000 000 0000" required>
+                                <input type="tel" id="phone" class="form-input" placeholder="+234 000 000 0000" required name="phone">
                             </div>
                         </div>
                         
                         <div class="form-group">
                             <label for="subject" class="form-label">Subject *</label>
-                            <select id="subject" class="form-select" required>
+                            <select id="subject" class="form-select" required name="inquiry_type">
                                 <option value="">Select inquiry type</option>
                                 <option value="technical">Technical Support</option>
                                 <option value="quote">Request Quote</option>
@@ -1282,7 +1282,7 @@
                         
                         <div class="form-group">
                             <label for="message" class="form-label">Message *</label>
-                            <textarea id="message" class="form-textarea" placeholder="Please describe your requirements in detail..." required></textarea>
+                            <textarea id="message" class="form-textarea" placeholder="Please describe your requirements in detail..." required name="message"></textarea>
                         </div>
                         
                         <button type="submit" class="submit-btn">
@@ -1485,8 +1485,6 @@
         
         // Contact Form Submission
         document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
             // Get form values
             const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;
@@ -1497,9 +1495,6 @@
             // In a real implementation, you would send this data to your server
             // For now, we'll show a success message
             alert(`Thank you ${name}! Your message has been sent successfully.\n\nWe will contact you at ${email} or ${phone} within 24 hours.\n\nSubject: ${subject}\n\nMessage: ${message.substring(0, 100)}...`);
-            
-            // Reset form
-            this.reset();
             
             // Scroll to top of form
             this.scrollIntoView({ behavior: 'smooth', block: 'start' });
